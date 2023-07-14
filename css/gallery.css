@@ -71,15 +71,9 @@ li {
     background-color: #f5f5f5;
 }
 
-.wait {
-    margin: 10px auto;
-    height: 500px;
-    width: 900px;
-}
-
-.wait img {
-    width: 100%;
-    height: 100%;
+.Navigator>.active>a {
+    background-color: #f5f5f5;
+    color: #003366;
 }
 
 .section_name {
@@ -89,6 +83,17 @@ li {
     text-align: center;
     font-weight: bold;
     font-size: 25px;
+}
+
+.wait {
+    margin: 10px auto;
+    height: 500px;
+    width: 900px;
+}
+
+.wait img {
+    width: 100%;
+    height: 100%;
 }
 
 .cu {

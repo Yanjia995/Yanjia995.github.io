@@ -71,6 +71,11 @@ li {
     background-color: #f5f5f5;
 }
 
+.Navigator>.active>a {
+    background-color: #f5f5f5;
+    color: #003366;
+}
+
 .wait {
     margin: 10px auto;
     height: 500px;

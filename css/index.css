@@ -71,6 +71,11 @@ li {
     background-color: #f5f5f5;
 }
 
+.Navigator>.active>a {
+    background-color: #f5f5f5;
+    color: #003366;
+}
+
 #banner {
     width: 1100px;
     height: 639px;
