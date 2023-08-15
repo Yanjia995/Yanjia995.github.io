@@ -2,267 +2,284 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ClimMet Group</title>
-	<link rel="stylesheet" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>CliMet Group</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-	<!-- 导航栏 -->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="photo/bcpic/logot.png" class="rounded" alt="" style="width:60px;">
+            </a>
+            <span class="navbar-text fw-bold fs-3" style="color: white;">CliMet Group</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="nav navbar-nav fs-4">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data.html">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teaching.html">Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="members.html">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cu">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 轮播 -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel" data-interval="100" data-pause="hover">
 
-	<head>
-		<div class="header w">
-			<div class="name">
-				CliMet Group @HKUST
-			</div>
-			<div class="Navigator">
-				<ul>
-					<li id="active"><a href="#">Home</a></li>
-					<li><a href="research.html">Research</a></li>
-					<li><a href="publications.html">Publications</a></li>
-					<li><a href="data.html">Data</a></li>
-					<li><a href="teaching.html">Teaching</a></li>
-					<li><a href="members.html">Members</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
-					<li><a href="#contact">Contact Us</a></a></li>
-				</ul>
-			</div>
-		</div>
-	</head>
-	<!-- banner -->
-	<div id="banner">
-		<ul id="imglist">
-			<li><img src="photo/bcpic/1.png" alt="bg1"></li>
-			<li><img src="photo/bcpic/2.png" alt="bg2"></li>
-			<li><img src="photo/bcpic/3.png" alt="bg3"></li>
-			<li><img src="photo/bcpic/4.png" alt="bg4"></li>
-			<li><img src="photo/bcpic/1.png" alt="bg1"></li>
-		</ul>
-		<ul id="icolist">
-			<li>1</li>
-			<li>2</li>
-			<li>3</li>
-			<li>4</li>
-		</ul>
-		<div class="prev">&lt;</div>
-		<div class="next">&gt;</div>
-	</div>
-	<script>
-		var eprev = document.querySelector('.prev');
-		var enext = document.querySelector('.next');
-		var esico = document.getElementById('icolist').getElementsByTagName('li');
-		var eicolist = document.querySelector('#icolist');
-		var eimglist = document.querySelector('#imglist');
-		var left = 0;
-		var timer;
-		run()
-		function run() {
-			if (left <= -4400) {
-				left = 0;
-			}
-			var m = Math.floor(-left / 1100);
-			imglist.style.marginLeft = left + 'px';
-			var n = (left % 1100 == 0) ? n = 3000 : n = 10;
-			left -= 50;
-			timer = setTimeout(run, n);
-			icochange(m);
-		}
-		function imgchange(n) {
-			let lt = - (n * 1100);
-			imglist.style.marginLeft = lt + 'px';
-			left = lt;
-		}
-		eprev.onclick = function () {
-			let prevgo = Math.floor(-left / 1100) - 1;
-			if (prevgo == -1) {
-				prevgo = 3;
-			}
-			imgchange(prevgo);
-		}
-		enext.onclick = function () {
-			let nextgo = Math.floor(-left / 1100) + 1;
-			if (nextgo == 4) {
-				nextgo = 0;
-			}
-			imgchange(nextgo);
-		}
-		function icochange(m) {
-			for (let index = 0; index < esico.length; index++) { esico[index].style.backgroundColor = ''; }
-			if (m < esico.length) {
-				esico[m].style.backgroundColor = '#003366';
-			}
-		}
-		eicolist.onclick = function () {
-			var tg = event.target;
-			let ico = tg.innerHTML - 1;
-			imgchange(ico);
-			icochange(ico);
-		}
+        <!-- 指示符 -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
 
-		eimglist.onmouseover = function () {
-			clearTimeout(timer);
-		}
-		eimglist.onmouseout = function () {
-			run();
-		}
-	</script>
+        <!-- 轮播图片 -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img decoding="async" src="photo/bcpic/1.png" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img decoding="async" src="photo/bcpic/2.png" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img decoding="async" src="photo/bcpic/3.png" class="d-block" style="width:100%">
+            </div>
+        </div>
 
+        <!-- 左右切换按钮 -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
 
-	<!-- our lab -->
-	<div class="section_name w">About us</div>
-	<div class="intro ww">Hello! This is CliMet Group led by Professor Hui Su at HKUST. The primary research interests
-		of the CliMet Group include climate variability and climate change, tropical convection, extreme weather,
-		satellite remote sensing and
-		related areas. Using ground-based and satellite data and numerical models, we focus on advancing our
-		understanding of climate variability, climate change, and extreme weather. If you are interested in our
-		research, please feel free to email us at <a href="mailto: CliMetGroup@gmail.com">CliMetGroup@gmail.com</a>
-	</div>
-
-	<div class="twolab ww">
-		<div class="CPL">
-			<div class="CPLhead">
-				JC STEM Lab of Convection and Precipitation
-			</div>
-			<div class="fcCPL">
-				<div>
-					<div class="CPLF"><img src="photo/CPL1.png" alt="CPL2"></div>
-					<div class="CPL_name1">Ka-Band Cloud Radar</div>
-				</div>
-				<div>
-					<div class="CPLF"><img src="photo/CPL2.png" alt="CPL2"></div>
-					<div class="CPL_name">Micro Pulse Aerosol Lidar</div>
-				</div>
-				<div class="lastCPLF">
-					<div class="CPLF"><img src="photo/CPL3.png" alt="CPL3"></div>
-					<div class="CPL_name">Microwave Radiometer Thermodynamic Profiler</div>
-				</div>
-			</div>
-			<div class="scCPL">
-				<div class="CPL4">
-					<div class="CPLF"><img src="photo/CPL4.png" alt="CPL2"></div>
-					<div class="CPL_name1">Micro Rain Radar</div>
-				</div>
-				<div class="CPL5">
-					<div class="CPLF"><img src="photo/CPL5.png" alt="CPL2"></div>
-					<div class="CPL_name1">2D Video Disdrometer</div>
-				</div>
-			</div>
-			<div class="obname">Objectives</div>
-			<div class="CPLob">
-				<ul>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon1.png" alt="icon1"></div>
-						<div class="CPLobtext">Create a comprehensive
-							dataset of convection and precipitation structures and the environments</div>
-					</li>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon2.png" alt="icon2"></div>
-						<div class="CPLobtext">Conduct in-depth analysis of convection and precipitation lifecycle</div>
-					</li>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon3.png" alt="icon3"></div>
-						<div class="CPLobtext">Perform high-resolution model simulations for process understanding
-						</div>
-					</li>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon4.png" alt="icon4"></div>
-						<div class="CPLobtext">Improve representation of convection and precipitation in models
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="sar">
-			<div class="CPLhead">
-				PIESAT CEnter for Remote Sensing Application Research
-			</div>
-			<div class="fcCPL">
-			</div>
-			<div class="scCPL">
-			</div>
-			<div class="obname">Objectives</div>
-			<div class="CPLob">
-				<ul>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon5.png" alt="icon1"></div>
-						<div class="CPLobtext">Apply global satellite data for local resilience and sustainability
-							development
-					</li>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon6.png" alt="icon2"></div>
-						<div class="CPLobtext">Convert remote sensing observations into actionable knowledge
-					</li>
-					<li>
-						<div class="CPLobicon"><img src="photo/icon/icon7.png" alt="icon3"></div>
-						<div class="CPLobtext">Develop methods and algorithms for extracting application-focused
-							information from satellite observations
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- News -->
-	<div class="section_name w">News</div>
-	<div class="news ww">
-		<div class="news_sub">
-			<div class="newphoto">
-				<a
-					href="https://www.ce.ust.hk/news/civl-student-part-award-winning-team-innovation-and-entrepreneurship-competition">
-					<img src="photo/new/new1.png" alt="new1">
-				</a>
-			</div>
-			<div class="newtitle">Advisor of Award-Winning Team at Innovation and Entrepreneurship Competition</div>
-			<div class="newdate">3 July 2023</div>
-			<div class="newbg"><img src="photo/bcpic/new1bg.png" alt="new1bg"></div>
-		</div>
-		<div class="news_sub"></div>
-		<div class="news_sub_last"></div>
-	</div>
-
-	<!-- Contact us -->
-	<div class="section_name w" id="contact">Contact us</div>
-	<div class="cu ww">
-		<div class="cu_sub">
-			<div class="cutitle_ad">Address</div>
-			<a
-				href="https://www.google.com/maps/place/Hong+Kong+University+of+Science+and+Technology+(HKUST)/@22.3355431,114.2704449,14.44z/data=!4m6!3m5!1s0x3404046bc19c7e15:0x2bedd58f9cf841be!8m2!3d22.338017!4d114.266618!16zL20vMDFucHYz?entry=ttu">Room
-				2605 (Lift 27-28)<br>
-				The Hong Kong University of Science & Technology<br>
-				Clear Water Bay, Kowloon<br>
-				Hong Kong, China</a>
-		</div>
-		<div class="cu_sub">
-			<div class="cutitle">General Enquiries
-			</div>
-			<ul>
-				<li>
-					<div class="cuicon"><img src="photo/icon/cu1.png" alt="cu1"></div>
-					<div class="cutext"><a href="mailto: CliMetGroup@gmail.com">CliMetGroup@gmail.com</a></div>
-				</li>
-				<li>
-					<div class="cuicon"><img src="photo/icon/cu2.png" alt="cu2"></div>
-					<div class="cutext">(852)3469 3101</div>
-				</li>
-				<li>
-					<div class="cuicon"><img src="photo/icon/cu3.png" alt="cu3"></div>
-					<div class="cutext">(852)3469 3101
-					</div>
-				</li>
-			</ul>
-		</div>
-
-		<div class="cu_sub_last">
-			<div class="cutitle">Media
-			</div>
-			<img src="photo/wechat.jpg" alt="">
-		</div>
-	</div>
+    <h4 class="text-center fs-3 fw-bold mt-4 mb-3">About us</h4>
+    <p class="mx-lg-5 fs-4">Hello! This is CliMet Group led by Professor Hui Su at HKUST. The primary research interests
+        of the CliMet Group include climate variability and climate change, tropical convection, extreme weather,
+        satellite remote sensing and
+        related areas. Using ground-based and satellite data and numerical models, we focus on advancing our
+        understanding of climate variability, climate change, and extreme weather. If you are interested in our
+        research, please feel free to email us at <a href="mailto: CliMetGroup@gmail.com">CliMetGroup@gmail.com</a></p>
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-md-6">
+                <div class="row shadow-sm bg-white">
+                    <p class="text-center mt-0 mb-1 w-100 fw-bold fs-4">JC STEM Lab of Convection and Precipitation</p>
+                    <div class="col-md-12">
+                        <img src="https://via.placeholder.com/300x200" alt="placeholder image"
+                            class="img-fluid mx-auto d-block">
+                    </div>
+                    <p class="text-center mt-2 mb-1 fw-bold fs-4">Objectives</p>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon1.png"
+                                        alt="icon1">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Create a comprehensive dataset
+                                of
+                                convection
+                                and precipitation
+                                structures and the environments</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon2.png"
+                                        alt="icon2">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Conduct in-depth analysis of convection
+                                and
+                                precipitation lifecycle
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon3.png"
+                                        alt="icon3">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Perform high-resolution model simulations
+                                for
+                                process understanding
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon4.png"
+                                        alt="icon4">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Improve representation of convection and
+                                precipitation in models
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row  shadow-sm bg-white">
+                    <p class="text-center mt-0 mb-1 w-100 fw-bold fs-4">PIESAT CEnter for Remote Sensing Application
+                        Research
+                    </p>
+                    <div class="col-md-12">
+                        <img src="https://via.placeholder.com/300x200" alt="placeholder image"
+                            class="img-fluid mx-auto d-block">
+                    </div>
+                    <p class="text-center mt-2 mb-1 fw-bold fs-4">Objectives</p>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon5.png"
+                                        alt="icon5">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Develop methods and algorithms for
+                                extracting
+                                application-focused information from satellite observations
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon6.png"
+                                        alt="icon6">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Apply global satellite data for local
+                                resilience and
+                                sustainability
+                                development</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 align-self-center">
+                                <div class="mx-auto text-center"><img class="img-fluid" src="photo/icon/icon7.png"
+                                        alt="icon7">
+                                </div>
+                            </div>
+                            <div class="col-10 px-0 fs-4">Convert remote sensing observations into
+                                actionable knowledge
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="text-center fw-bold mt-4 mb-3 fs-3">Latest News</h4>
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-md-4">
+                <div class="row shadow-sm bg-white">
+                    <a class="px-0"
+                        href="https://www.ce.ust.hk/news/civl-student-part-award-winning-team-innovation-and-entrepreneurship-competition">
+                        <img class="w-100" src="photo/new/new1.png" alt="new1">
+                    </a>
+                    <p class="my-1 fw-bold fs-4">Advisor of Award-Winning Team at Innovation and Entrepreneurship
+                        Competition
+                    </p>
+                    <p class="my-1 fs-4">3 July 2023</p>
+                    <img class="w-100 px-0" src="photo/bcpic/new2bg.png" alt="new1bg">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row shadow-sm p-1 mb-4 bg-white">
+                    coghd
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row shadow-sm p-1 mb-4 bg-white">
+                    coghd
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <footer>
-	<div class="footer w">&copy; 2023 CliMet Group. All rights reserved.</div>
+    <p class="text-center fw-bold mt-4 mb-3 fs-3" id="cu">Contact us</p>
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-md-4">
+                <div class="row p-0 mb-4">
+                    <p class="fs-4 fw-bold">Address</p>
+                    <a class="fs-4"
+                        href="https://www.google.com/maps/place/Hong+Kong+University+of+Science+and+Technology+(HKUST)/@22.3355431,114.2704449,14.44z/data=!4m6!3m5!1s0x3404046bc19c7e15:0x2bedd58f9cf841be!8m2!3d22.338017!4d114.266618!16zL20vMDFucHYz?entry=ttu">Room
+                        2605 (Lift 27-28)<br>
+                        The Hong Kong University of Science & Technology<br>
+                        Clear Water Bay, Kowloon<br>
+                        Hong Kong, China</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row p-0 mb-4">
+                    <p class="fs-4 fw-bold">General Enquiries</p>
+                    <div class="col-2 align-self-center px-0">
+                        <div><img class="img-fluid" src="photo/icon/cu1.png" alt="cuicon1">
+                        </div>
+                    </div>
+                    <div class="col-10 px-0 fs-4 align-self-center"><a
+                            href="mailto: CliMetGroup@gmail.com">CliMetGroup@gmail.com</a>
+                    </div>
+                    <div class="col-2 align-self-center px-0">
+                        <div><img class="img-fluid" src="photo/icon/cu2.png" alt="cuicon2">
+                        </div>
+                    </div>
+                    <div class="col-10 px-0 fs-4 align-self-center">(852)3469 3101
+                    </div>
+                    <div class="col-2 align-self-center px-0">
+                        <div><img class="img-fluid" src="photo/icon/cu3.png" alt="cuicon3">
+                        </div>
+                    </div>
+                    <div class="col-10 px-0 fs-4 align-self-center">(852)3469 3101
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row p-0 mb-4">
+                    <p class="fs-4 fw-bold">Media</p>
+                    <div><img class="img-fluid" src="photo/wechat.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center text-white fs-5" style="background-color: #003366;">
+        © 2023 Copyright: CliMet Group
+    </div>
 </footer>
-
 
 </html>
