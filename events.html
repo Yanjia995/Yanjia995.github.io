@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>CliMet Lab</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .hover-link {
+            text-decoration: none; /* 去掉下划线 */
+            transition: color 0.3s, background-color 0.3s; /* 添加过渡效果 */
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="photo/bcpic/logo.png" class="rounded" alt="" style="width:60px;">
+        </a>
+        <span class="navbar-text fw-bold fs-3" style="color: white;">CliMet Lab</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+            <ul class="nav navbar-nav fs-4">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="teaching.html">Teaching</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="publications.html">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="data.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="members.html">Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cu">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <!-- 海报展示 -->
+  <section class="container my-5">
+    <div class="row align-items-center bg-light rounded shadow p-4">
+      <div class="col-md-5 text-center mb-3 mb-md-0">
+        <img src="photo/event.png" alt="Conference Poster" class="img-fluid rounded border" style="max-height:340px;">
+      </div>
+      <div class="col-md-7">
+        <h2 class="fw-bold mb-2" style="color:#003366;">Supporting Net-Zero Transition by Remote Sensing Satellite Technology </h2>
+        <div class="fs-5 mb-2">
+          <i class="fa-solid fa-calendar-days me-2" style="color:#003366;"></i>October 28-29, 2025
+          <br>
+          <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>IAS LT, Hong Kong
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会议日程表 -->
+  <section class="container my-5">
+    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
+      <i class="fa-solid fa-calendar-check me-2"></i>Agenda
+    </div>
+    <div class="table-responsive">
+      <table class="table align-middle shadow" style="border-radius: 18px; overflow: hidden;">
+        <tbody>
+          <!-- Day 1 -->
+          <tr>
+            <td colspan="2" class="text-center fw-bold" style="background:#e3f2fd; color:#003366; font-size:1.1rem;">Day 1: October 28, 2025</td>
+          </tr>
+          <!-- 09:00-09:30 -->
+          <tr style="background-color: #f7fafc;">
+            <td class="fw-semibold" style="color:#003366; width:120px;">09:00-09:30</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Welcome Address</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="chair.png" alt="Prof. Hui Su" class="rounded-circle me-2 border border-2 border-primary" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#003366;">Prof. Hui Su</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">HKUST</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 09:30-10:15 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">09:30-10:15</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Tropical SST Variability</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="wang.png" alt="Dr. Wang" class="rounded-circle me-2 border border-2 border-success" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#218838;">Dr. Wang</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">NOAA</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 10:15-10:30 Coffee Break -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">10:15-10:30</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-mug-hot me-1"></i>
+              <span class="fw-semibold">Coffee Break</span>
+            </td>
+          </tr>
+          <!-- 10:30-11:15 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">10:30-11:15</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Satellite Remote Sensing for Net-Zero</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="li.png" alt="Dr. Li" class="rounded-circle me-2 border border-2 border-info" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#0dcaf0;">Dr. Li</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">CAS</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 11:15-12:00 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">11:15-12:00</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Cloud-Radiation Feedbacks</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="zhang.png" alt="Prof. Zhang" class="rounded-circle me-2 border border-2 border-info" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#0dcaf0;">Prof. Zhang</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Peking University</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 12:00-13:30 Lunch -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">12:00-13:30</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-utensils me-1"></i>
+              <span class="fw-semibold">Lunch</span>
+            </td>
+          </tr>
+          <!-- 13:30-14:15 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">13:30-14:15</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">CRE and Climate Model Differences</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="experts.png" alt="International Expert Panel" class="rounded-circle me-2 border border-2 border-warning" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#ffc107;">International Expert Panel</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Various Institutions</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 14:15-15:00 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">14:15-15:00</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Satellite Data Assimilation</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="liu.png" alt="Dr. Liu" class="rounded-circle me-2 border border-2 border-warning" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#ffc107;">Dr. Liu</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">ECMWF</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 15:00-15:15 Coffee Break -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">15:00-15:15</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-mug-hot me-1"></i>
+              <span class="fw-semibold">Coffee Break</span>
+            </td>
+          </tr>
+          <!-- 15:15-16:30 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">15:15-16:30</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Young Scholars Forum</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="young.png" alt="Young Scholars" class="rounded-circle me-2 border border-2 border-secondary" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#6c757d;">Young Scholars</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Various Universities</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 16:30-17:00 -->
+          <tr style="background-color: #f7fafc;">
+            <td class="fw-semibold" style="color:#003366;">16:30-17:00</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Summary &amp; Closing</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="chair.png" alt="Prof. Hui Su" class="rounded-circle me-2 border border-2 border-dark" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#212529;">Prof. Hui Su</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">HKUST</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- Day 2 -->
+          <tr>
+            <td colspan="2" class="text-center fw-bold" style="background:#e3f2fd; color:#003366; font-size:1.1rem;">Day 2: October 29, 2025</td>
+          </tr>
+          <!-- 09:00-09:45 -->
+          <tr style="background-color: #f7fafc;">
+            <td class="fw-semibold" style="color:#003366;">09:00-09:45</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Satellite Observations of Greenhouse Gases</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="chen.png" alt="Dr. Chen" class="rounded-circle me-2 border border-2 border-primary" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#003366;">Dr. Chen</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Tsinghua University</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 09:45-10:30 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">09:45-10:30</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Remote Sensing for Urban Climate</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="gao.png" alt="Prof. Gao" class="rounded-circle me-2 border border-2 border-success" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#218838;">Prof. Gao</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">HKU</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 10:30-10:45 Coffee Break -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">10:30-10:45</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-mug-hot me-1"></i>
+              <span class="fw-semibold">Coffee Break</span>
+            </td>
+          </tr>
+          <!-- 10:45-11:30 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">10:45-11:30</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Satellite Data for Air Quality Monitoring</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="xu.png" alt="Dr. Xu" class="rounded-circle me-2 border border-2 border-info" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#0dcaf0;">Dr. Xu</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">HKUST</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 11:30-12:15 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">11:30-12:15</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Panel Discussion: Future of Remote Sensing</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="panel.png" alt="Panelists" class="rounded-circle me-2 border border-2 border-info" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#0dcaf0;">Panelists</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">All Speakers</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 12:15-13:30 Lunch -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">12:15-13:30</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-utensils me-1"></i>
+              <span class="fw-semibold">Lunch</span>
+            </td>
+          </tr>
+          <!-- 13:30-14:15 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">13:30-14:15</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Remote Sensing Applications in Agriculture</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="huang.png" alt="Dr. Huang" class="rounded-circle me-2 border border-2 border-warning" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#ffc107;">Dr. Huang</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Zhejiang University</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 14:15-15:00 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">14:15-15:00</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Poster Session</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="poster.png" alt="All Participants" class="rounded-circle me-2 border border-2 border-warning" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#ffc107;">All Participants</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">Various Institutions</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- 15:00-15:15 Coffee Break -->
+          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
+            <td class="fw-semibold" style="color:#003366;">15:00-15:15</td>
+            <td class="text-center text-secondary">
+              <i class="fa-solid fa-mug-hot me-1"></i>
+              <span class="fw-semibold">Coffee Break</span>
+            </td>
+          </tr>
+          <!-- 15:15-16:00 -->
+          <tr>
+            <td class="fw-semibold" style="color:#003366;">15:15-16:00</td>
+            <td>
+              <div class="fw-bold" style="color:#003366;">Closing Remarks</div>
+              <div class="d-flex align-items-center mt-2">
+                <img src="chair.png" alt="Prof. Hui Su" class="rounded-circle me-2 border border-2 border-dark" style="width:44px; height:44px; object-fit:cover;">
+                <div>
+                  <span class="fw-bold" style="color:#212529;">Prof. Hui Su</span><br>
+                  <span class="text-secondary" style="font-size:0.98rem;">HKUST</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <style>
+      .table {
+        border-radius: 18px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 24px 0 rgba(0, 51, 102, 0.08);
+      }
+      .table th, .table td {
+        vertical-align: middle !important;
+        border: none;
+        border-bottom: 1.5px solid #e3e6ea;
+        padding-top: 1.1rem;
+        padding-bottom: 1.1rem;
+      }
+      .table thead th {
+        border-bottom: 2.5px solid #003366;
+        font-weight: 700;
+      }
+      .table tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .badge {
+        font-size: 0.98rem;
+        padding: 0.45em 0.9em;
+        border-radius: 0.7em;
+        letter-spacing: 0.5px;
+      }
+      @media (max-width: 768px) {
+        .table th, .table td {
+          font-size: 0.98rem;
+          padding-top: 0.7rem;
+          padding-bottom: 0.7rem;
+        }
+        .table th {
+          font-size: 1rem;
+        }
+      }
+    </style>
+  </section>
+</body>
+</html>
