@@ -11,19 +11,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>CliMet Lab</title>
+    <title>CliMet Lab - Events</title>
     <link rel="stylesheet" href="css/index.css">
+    
     <style>
-        .hover-link {
-            text-decoration: none; /* 去掉下划线 */
-            transition: color 0.3s, background-color 0.3s; /* 添加过渡效果 */
+        /* --- 样式强制修正式区 --- */
+        
+        /* 1. 基础表格：清晰实线边框 */
+        .agenda-table {
+            border-collapse: collapse !important;
+            width: 100% !important;
+            background-color: white !important;
+            border: 1px solid #B0BEC5 !important; /* 浅灰色边框线 */
         }
-    </style>
-    <style>
-      .prof-link:hover, .prof-link:focus {
-        color: #218838 !important;
-        text-decoration: underline;
-      }
+
+        .agenda-table th, .agenda-table td {
+            border: 1px solid #B0BEC5 !important; 
+            padding: 15px !important;
+        }
+
+        /* 2. 表头：浅蓝绿色 (与按钮色调相近) */
+        .agenda-table thead tr {
+            background-color: #B2EBF2 !important; /* 浅蓝绿，接近按钮色 */
+        }
+        .agenda-table thead th {
+            background-color: #B2EBF2 !important;
+            color: #003366 !important; /* 深蓝色文字，保持易读 */
+            text-align: center !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+        }
+
+        /* 3. 交替行背景 */
+        .agenda-table tbody tr:nth-of-type(odd) {
+            background-color: #FAFFFF !important;
+        }
+        .agenda-table tbody tr:nth-of-type(even) {
+            background-color: #F0F8F8 !important;
+        }
+
+        /* 4. 居中与靠左对齐类 */
+        .center-cell {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+        .left-cell {
+            text-align: left !important;
+            vertical-align: middle !important;
+        }
+
+        /* 5. 注册按钮样式保持一致 */
+        .custom-register-btn {
+            background: rgb(178, 224, 246);
+            color: #003366;
+            border-radius: 30px;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            transition: background 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+        .custom-register-btn:hover {
+            background: #80DEEA;
+            color: #003366;
+        }
     </style>
 </head>
 <body>
@@ -38,1002 +88,115 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
             <ul class="nav navbar-nav fs-4">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="teaching.html">Teaching</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="research.html">Research</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="publications.html">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="data.html">Data</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="members.html">Members</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#cu">Contact us</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="teaching.html">Teaching</a></li>
+                <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
+                <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cu">Contact us</a></li>
             </ul>
         </div>
     </div>
   </nav>
-  <!-- 海报展示 -->
+
   <section class="container my-5">
     <div class="row align-items-center bg-light rounded shadow p-4">
       <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="photo/img/backup.jpg" alt="Conference Poster" class="img-fluid rounded border" style="max-height:340px;">
+        <img src="photo/new/methane.png" alt="Conference Poster" class="img-fluid rounded border" style="max-height:340px;">
       </div>
       <div class="col-md-7">
-        <h2 class="fw-bold mb-2" style="color:#003366;">Supporting Net-Zero Transition by Remote Sensing Satellite Technology</h2>
+        <h2 class="fw-bold mb-2" style="color:#003366;">2026 International Workshop on Methane Observation and Quantification</h2>
         <div class="fs-5 mb-2">
-          <i class="fa-solid fa-calendar-days me-2" style="color:#003366;"></i>October 28-29, 2025
-          <br>
-          <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>  IAS LT, HKUST
-          <br>
-          <i class="fa-solid fa-video me-2" style="color:#003366;"></i>Zoom ID: 94519608041; Passcode: 878426
-          <br>
-
-            <i class="fa-solid fa-link me-1" style="color:#003366;"></i>
-            Registration Link: 
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfTSzX2lpL3mmsJu2r_rBs-PzKR2wY5GOyYILAXQNOhySWVKQ/viewform" target="_blank" style="color:#0074D9; word-break:break-all;">
-              https://docs.google.com/forms/d/e/1FAIpQLSfTSzX2lpL3mmsJu2r_rBs-PzKR2wY5GOyYILAXQNOhySWVKQ/viewform
+            <i class="fa-solid fa-calendar-days me-2" style="color:#003366;"></i>8-9 June, 2026<br>
+            <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>Hong Kong University of Science and Technology (HKUST)<br>
+            <i class="fa-solid fa-video me-2" style="color:#003366;"></i>Zoom ID: 95914100125; Passcode: 587070<br>
+            <i class="fa-solid fa-link me-1" style="color:#003366;"></i>Registration Link: 
+            <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" style="color:#0074D9; word-break:break-all;">
+                https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268
             </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Register Button -->
-  <style>
-    .custom-register-btn {
-      background: rgb(178, 224, 246);
-      color: #003366;
-      border-radius: 30px;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-      transition: background 0.3s, color 0.3s;
-    }
-    .custom-register-btn:hover, .custom-register-btn:focus {
-      background:  rgb(190, 229, 204);
-      color: #003366;
-      text-decoration: none;
-    }
-  </style>
   <div class="text-center my-4">
-    <a href="https://forms.gle/mptaEtgUVsBywFNGA" target="_blank" class="btn btn-lg px-5 py-2 fw-bold shadow custom-register-btn">
-      Click here for Free Registration
+    <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" class="btn btn-lg px-5 py-2 fw-bold shadow custom-register-btn">
+      Click here for Registration
     </a>
   </div>
 
-  <!-- 会议日程表 -->
   <section class="container my-5">
-    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
-      <i class="fa-solid fa-calendar-check me-2"></i>Agenda
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="bg-light rounded shadow p-5" style="border-left: 5px solid #003366;">
+          <h3 class="fw-bold mb-3" style="color:#003366;"><i class="fa-solid fa-lightbulb me-2"></i>Background</h3>
+          <p class="fs-5 mb-3" style="color:#333; line-height:1.6;">Methane emission reduction is a crucial imperative for curbing near-term global temperature rise and achieving significant climate benefits. However, the effectiveness of this effort hinges on the accuracy of emission monitoring and quantification. To meet this need, an integrated monitoring system that combines space-based, aerial, and ground-based technologies becomes indispensable for developing science-informed mitigation strategies.</p>
+          <p class="fs-5 mb-3" style="color:#333; line-height:1.6;">Following the success of the previous workshops from 2023 to 2025, we are pleased to invite the global community to reconvene in Hong Kong for the 4th International Workshop on Methane Observation and Quantification.</p>
+          <p class="fs-5" style="color:#333; line-height:1.6;">Designed as a premier global forum, this workshop will convene leading scholars and experts to collectively advance the science and technology of methane observation and quantification. Our goal is to forge the robust scientific foundation necessary to achieve global climate governance goals.</p>
+        </div>
+      </div>
     </div>
-    <div class="table-responsive">
-      <table class="table align-middle shadow" style="border-radius: 18px; overflow: hidden;">
-        <tbody>
-          <!-- Day 1 -->
-          <tr>
-            <td colspan="2" class="text-center fw-bold" style="background:#e3f2fd; color:#003366; font-size:1.1rem;">Day 1: October 28, 2025</td>
-          </tr>
-
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">08:30-09:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-id-card me-1"></i>
-              <span class="fw-semibold">Name Badge Collection</span>
-            </td>
-          </tr>
-
-          <!-- 09:00-09:20 -->
-          <tr style="background-color: #f7fafc;">
-            <td class="fw-semibold" style="color:#003366; width:120px;">09:00-09:20</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Welcome Remarks</div>
-              <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center mt-2 gap-3">
-                <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start w-100">
-                  <img src="/photo/img/ProfZhang.jpg" alt="Prof. Zhang" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                  <div class="prof-affiliation-text text-center text-sm-start">
-                    <a href="https://ce.hkust.edu.hk/people/limin-zhang-zhanglimin" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                      Prof. Limin Zhang
-                    </a><br>
-                    <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                  </div>
-                </div>
-                <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start w-100">
-                  <img src="/photo/img/ProfSu.jpg" alt="Prof. Su" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                  <div class="prof-affiliation-text text-center text-sm-start">
-                    <a href="https://ce.hkust.edu.hk/people/hui-su-suhui" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                      Prof. Hui Su
-                    </a><br>
-                    <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                  </div>
-                </div>
-              </div>
-            </td>
-          </tr>
-          
-          <!-- 09:20-09:50 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:20-09:50</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Improving Remote Sensing of Greenhouse Gases Through Retrieval of Aerosol Parameters</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfYung.png" alt="Prof. Yung" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.gps.caltech.edu/people/yuk-l-yung" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Yuk L. Yung
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">California Institute of Technology, USA</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-                    
-          <!-- 09:50-10:20 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:50-10:20</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfCiais.png" alt="Prof. Ciais" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.lsce.ipsl.fr/en/cycles-transferts/biogeo/pisp/philippe-ciais/" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Philippe Ciais 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Laboratoire des Sciences du Climat et de l’Environnement, Institut Pierre-Simon Laplace, France</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 10:20-10:50 Coffee Break -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">10:20-10:50</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-mug-hot me-1"></i>
-              <span class="fw-semibold">Coffee Break</span>
-            </td>
-          </tr>
-
-          <!-- 10:50-11:20 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">10:50-11:20</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Greenhouse Gas Satellites and Top-Down Estimation of Methane Emission Rates</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfKim.jpg" alt="Prof. Kim" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://yatmos.github.io/eng/people/jhoonkim/" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Jhoon Kim  
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Yonsei University, Korea</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 11:20-11:50 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">11:20-11:50</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Integrated GHG Monitoring over Urban Areas</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/DrChang.jpg" alt="Dong Yeong Chang" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://scholar.google.com/citations?hl=en&user=1q4A4HUAAAAJ&view_op=list_works&sortby=pubdate" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Dr. Dong Yeong Chang 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Seoul National University, Korea</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 11:50-14:00 Lunch -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">11:50-14:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-utensils me-1"></i>
-              <span class="fw-semibold">Lunch</span>
-            </td>
-          </tr>
-
-          <!-- 14:00-14:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">14:00-14:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Quantifying Methane Emissions from Key Sectors and Regions</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfChen.jpg" alt="Prof. Chen" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://as.nju.edu.cn/as_en/50/3f/c20738a544831/page.htm" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Huilin Chen 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Nanjing University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 14:30-15:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">14:30-15:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">The developing process and challenge of Chinese GHG satellites</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfLiu.jpg" alt="Prof. Liu" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://iap.cas.cn/sourcedb/zw/gbzjrc/zg2020/202004/t20200415_5546210.html" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Yi Liu 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Institute of Atmospheric Physics, Chinese Academy of Sciences, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 15:00-15:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">15:00-15:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Near-real time monitoring of fossil CH<sub>4</sub> emissions</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ZL.png" alt="Zhilong Lu" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://scholar.harvard.edu/zhu/home" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Zhu Liu 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Tsinghua University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 15:30-16:00 Coffee Break -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">15:30-16:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-mug-hot me-1"></i>
-              <span class="fw-semibold">Coffee Break</span>
-            </td>
-          </tr>
-
-          <!-- 16:00-16:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">16:00-16:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Satellite-ground collaborative measurement and quantification of methane emissions from coal mines in China</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfQin.jpg" alt="Prof. Qin" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.researchgate.net/profile/Qin-Kai-2" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Kai Qin
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">China University of Mining and Technology, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 16:30-17:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">16:30-17:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfJason.jpg" alt="Prof. Jason" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://scholar.google.com/citations?hl=en&user=8uCUP9AAAAAJ&view_op=list_works&sortby=pubdate" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Jason Blake Cohen
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">China University of Mining and Technology, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-           <!-- 17:00-17:30 -->
-           <tr>
-            <td class="fw-semibold" style="color:#003366;">17:00-17:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Retrieval of Solar-induced Chlorophyll Fluorescence and Methane from Chinese Hyperspectral Satellites</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/PorfYGZ.jpg" alt="Prof. Yongguang Zhang" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://scholar.google.com/citations?hl=en&user=IWPUkLsAAAAJ&view_op=list_works&sortby=pubdate" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Yongguang Zhang
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Nanjing University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 17:30-18:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">17:30-18:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">High-Resolution Greenhouse Gas Point Source Monitoring on China’s Space Station: Project Status Report</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfSu.jpg" alt="Prof. Su" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://ce.hkust.edu.hk/people/hui-su-suhui" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Hui Su 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 17:30-18:00 Group Discussion -->
-          <!-- <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">17:30-18:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-comments me-1"></i>
-              <span class="fw-semibold">Group Discussion</span>
-            </td>
-          </tr> -->
-
-          <!-- 18:00-21:00 Dinner -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">18:00-21:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-utensils me-1"></i>
-              <span class="fw-semibold">Dinner</span>
-            </td>
-          </tr>
-
-          <!-- Day 2 -->
-          <tr>
-            <td colspan="2" class="text-center fw-bold" style="background:#e3f2fd; color:#003366; font-size:1.1rem;">Day 2: October 29, 2025</td>
-          </tr>
-
-          <!-- 09:00-09:15 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:00-09:15</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Toward Carbon Neutral Cities: Pathways to Decarbonize the Power Grid System</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfWang.jpg" alt="Prof. Wang" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://seng.hkust.edu.hk/about/people/faculty/walter-zhe-wang" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Zhe Wang
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 09:15-09:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:15-09:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfZhai.jpg" alt="Prof. Zhai" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://facultyprofiles.hkust.edu.hk/profiles.php?profile=chengxing-zhai-cxzhai" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Chengxing Zhai
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-                    
-          <!-- 09:30-09:45 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:30-09:45</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Carbon Dioxide Inversion Algorithm Utilizing the Integrated Methane Inversion Framework</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/DrRong.jpg" alt="Dr. Rong" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://orcid.org/0000-0002-9923-0652" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Dr. Pingping Rong
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 09:45-10:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">09:45-10:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Detection and Retrieval of Atmospheric Trace Gases Using Thermal Infrared Sounders on Board the Fengyun Satellites</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/DrLiang.jpg" alt="Prof. Gu" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.researchgate.net/profile/Zhenxing_Liang2" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Dr. Zhenxing Liang  
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 10:00-10:15 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">10:00-10:15</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Investigating natural source of methane emission in Asia with satellite observations</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfShi.jpg" alt="Prof. Shi" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://facultyprofiles.hkust.edu.hk/profiles.php?profile=xiaoming-shi-shixm" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Xiaoming Shi 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 10:15-10:45 Coffee Break -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">10:15-10:45</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-mug-hot me-1"></i>
-              <span class="fw-semibold">Coffee Break</span>
-            </td>
-          </tr>
-
-          <!-- 10:45-11:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">10:45-11:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">A synchronized estimation of hourly surface concentrations of six criteria air pollutants with GEMS data</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfGao.png" alt="Prof. Gao" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://geog.hkbu.edu.hk/people/academic-and-teaching-staff/prof-gao-meng.html" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Meng Gao 
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Hong Kong Baptist University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-
-
-          <!-- 11:00-11:15 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">11:00-11:15</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfJZZ.jpg" alt="Prof. JJZ" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://ce.hkust.edu.hk/people/jize-zhang-zhangjize" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Jize Zhang
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 11:15-11:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">11:15-11:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfLi.png" alt="Prof. Li" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.ln.edu.hk/sis/faculty/prof-li-jia" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Jia Li
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 11:30-11:45 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">11:30-11:45</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfZhu.jpg" alt="Prof. Zhu" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://facultyprofiles.hkust.edu.hk/profiles.php?profile=pengyu-zhu-pengyuzhu" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Pengyu Zhu
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 11:45-12:00 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">11:45-12:00</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">TBA</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfMa.jpg" alt="Prof. Ma" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://seng.hkust.edu.hk/about/people/faculty/xiaojuan-ma" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Xiaojuan Ma
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">HKUST, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 12:00-12:15 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">12:00-12:15</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Spatiotemporal gradients of greenhouse gas concentrations: observation, simulation, and application in emission inversion</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ProfHu.png" alt="Prof. Hu" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://www.researchgate.net/profile/Cheng-Hu-13" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. Cheng Hu
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Nanjing Forestry University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 12:15-12:30 -->
-          <tr>
-            <td class="fw-semibold" style="color:#003366;">12:15-12:30</td>
-            <td>
-              <div class="fw-bold" style="color:#003366;">Global Rice Paddy Inventory (GRPI): a High-resolution Inventory of Methane Emissions from Rice Agriculture Based on Landsat Satellite Inundation Data</div>
-              <div class="avatar-affiliation-group d-flex flex-column flex-sm-row align-items-center text-center text-sm-start justify-content-center justify-content-sm-start mt-2">
-                <img src="/photo/img/ZCC.jpg" alt="Prof. ZCC" class="rounded-circle border border-2 avatar-image me-0 me-sm-2 mb-2 mb-sm-0"
-                      style="border-color:#0074D9 !important; width:44px; height:44px; object-fit:cover; object-position: 50% 20%;">
-                <div class="prof-affiliation-text text-center text-sm-start">
-                  <a href="https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page?id=516" class="prof-link fw-bold" style="color:#0074D9; text-decoration:none;">
-                    Prof. ZiChong Chen
-                  </a><br>
-                  <span class="text-secondary" style="font-size:0.98rem;">Nanjing Forestry University, China</span>
-                </div>
-              </div>
-            </td>
-          </tr>
-
-          <!-- 12:30-14:00 Lunch -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">12:30-14:00</td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-utensils me-1"></i>
-              <span class="fw-semibold">Lunch</span>
-            </td>
-          </tr>
-
-          <!-- 14:00- Stakeholders’ engagement -->
-          <tr style="background: linear-gradient(90deg, #e3f2fd 60%, #f8fafc 100%);">
-            <td class="fw-semibold" style="color:#003366;">14:00- </td>
-            <td class="text-center text-secondary">
-              <i class="fa-solid fa-handshake me-1"></i>
-              <span class="fw-semibold">Stakeholders' Engagement</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <style>
-      .table {
-        border-radius: 18px;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 0 4px 24px 0 rgba(0, 51, 102, 0.08);
-      }
-      .table th, .table td {
-        vertical-align: middle !important;
-        border: none;
-        border-bottom: 1.5px solid #e3e6ea;
-        padding-top: 1.1rem;
-        padding-bottom: 1.1rem;
-      }
-      .table thead th {
-        border-bottom: 2.5px solid #003366;
-        font-weight: 700;
-      }
-      .table tbody tr:last-child td {
-        border-bottom: none;
-      }
-      .badge {
-        font-size: 0.98rem;
-        padding: 0.45em 0.9em;
-        border-radius: 0.7em;
-        letter-spacing: 0.5px;
-      }
-
-      .avatar-affiliation-group {
-        /* nothing by default */
-      }
-
-      .prof-affiliation-text {
-        min-width: 0;
-        max-width: 230px;
-        word-break: break-word;
-        white-space: normal;
-      }
-
-      @media (max-width: 768px) {
-        .table th, .table td {
-          font-size: 0.98rem;
-          padding-top: 0.7rem;
-          padding-bottom: 0.7rem;
-        }
-        .table th {
-          font-size: 1rem;
-        }
-        .prof-affiliation-text {
-          max-width: 260px;
-        }
-      }
-
-      @media (max-width: 576px) {
-        /* 头像和机构文本纵向排列并居中，且margin适配窄屏 */
-        .avatar-affiliation-group {
-          flex-direction: column !important;
-          align-items: center !important;
-          justify-content: center !important;
-          text-align: center !important;
-          width: 100%;
-        }
-        .avatar-affiliation-group .avatar-image {
-          margin-right: 0 !important;
-          margin-bottom: 8px !important;
-        }
-        .avatar-affiliation-group .prof-affiliation-text {
-          margin-left: 0 !important;
-          margin-top: 0 !important;
-          text-align: center !important;
-          max-width: 340px;
-        }
-      }
-      @media (min-width: 577px) {
-        .avatar-affiliation-group {
-          flex-direction: row !important;
-          align-items: center !important;
-          text-align: left !important;
-        }
-        .avatar-affiliation-group .prof-affiliation-text {
-          margin-left: 0.5rem !important;
-          margin-top: 0 !important;
-          text-align: left !important;
-        }
-        .avatar-affiliation-group .avatar-image {
-          margin-right: 0.5rem !important;
-          margin-bottom: 0 !important;
-        }
-      }
-
-      /* 防止英文单词随意断行以及机构文本拉长 */
-      .prof-affiliation-text,
-      .prof-affiliation-text * {
-        word-break: break-word;
-        overflow-wrap: anywhere;
-      }
-    </style>
   </section>
 
-  <!-- Meals Information -->
   <section class="container my-5">
-    <style>
-      /* 默认宽度：1:3:3 比例 */
-      .meals-table th:nth-child(1),
-      .meals-table td:nth-child(1) {
-        width: 14.3%;
-        min-width: 100px;
-        max-width: 120px;
-      }
-      .meals-table th:nth-child(2),
-      .meals-table td:nth-child(2) {
-        width: 42.85%;
-        min-width: 180px;
-        max-width: 370px;
-      }
-      .meals-table th:nth-child(3),
-      .meals-table td:nth-child(3) {
-        width: 42.85%;
-        min-width: 180px;
-        max-width: 370px;
-      }
-
-      /* 屏幕宽度 <= 768px，缩小第二列和第三列，但第一列不缩小 */
-      @media (max-width: 768px) {
-        .meals-table th:nth-child(1),
-        .meals-table td:nth-child(1) {
-          width: 18vw;
-          min-width: 90px;
-          max-width: 120px;
-        }
-        .meals-table th:nth-child(2),
-        .meals-table td:nth-child(2) {
-          width: 32vw;
-          min-width: 120px;
-          max-width: 270px;
-        }
-        .meals-table th:nth-child(3),
-        .meals-table td:nth-child(3) {
-          width: 32vw;
-          min-width: 120px;
-          max-width: 270px;
-        }
-      }
-
-      /* 屏幕宽度 <= 576px，进一步缩小第二列和第三列 */
-      @media (max-width: 576px) {
-        .meals-table th:nth-child(1),
-        .meals-table td:nth-child(1) {
-          width: 26vw;
-          min-width: 85px;
-          max-width: 110px;
-        }
-        .meals-table th:nth-child(2),
-        .meals-table td:nth-child(2) {
-          width: 37vw;
-          min-width: 85px;
-          max-width: 180px;
-        }
-        .meals-table th:nth-child(3),
-        .meals-table td:nth-child(3) {
-          width: 37vw;
-          min-width: 85px;
-          max-width: 180px;
-        }
-      }
-
-      /* 强制表头和单元格左对齐 */
-      .meals-table th, .meals-table td {
-        text-align: left !important;
-        vertical-align: middle;
-      }
-    </style>
     <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
-      <i class="fa-solid fa-utensils me-2"></i>Meals Information
+      <i class="fa-solid fa-calendar-alt me-2"></i>General Agenda
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-10">
         <div class="table-responsive">
-          <table class="table table-bordered align-middle shadow-sm meals-table" style="background:#fff;">
-            <thead style="background:#e3f2fd;">
-              <tr class="fw-semibold" style="color:#003366;">
-                <th>Time</th>
-                <th>Venue</th>
-                <th>How to Get</th>
+          <table class="table align-middle agenda-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Date</th>
+                <th style="width: 25%;">Time (UTC+8)</th>
+                <th>Agenda</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="fw-semibold">Lunch<br><span class="d-block text-secondary" style="font-size:0.96rem;">(Oct 28)</span></td>
-                <td>
-                  <span style="color:#0074D9; font-weight:600;">@ Unique</span><br>
-                  2/F, Li Dak Sum Yip Yio Chin Kenneth Li Conference Lodge, HKUST
-                </td>
-                <td>
-                  The dining venue is located directly opposite the workshop venue.
-                </td>
+                <td class="left-cell" style="font-weight:600; color:#006064;">June 7th, 2026</td>
+                <td class="left-cell" style="font-weight:500; color:#00838F;">4:00-6:00 PM</td>
+                <td class="left-cell">Registration</td>
               </tr>
               <tr>
-                <td class="fw-semibold">Dinner<br><span class="d-block text-secondary" style="font-size:0.96rem;">(Oct 28)</span></td>
-                <td>
-                  <span style="color:#0074D9; font-weight:600;">@ CIELO</span><br>
-                  47/F, Crowne Plaza Hong Kong Kowloon East<br>
-                  3 Tong Tak Street, Tseung Kwan O, Kowloon<br>
-                  Hong Kong<br>
-                  <a href="https://maps.app.goo.gl/VdqYVYKwanvBh43v5" target="_blank" style="color:#0074D9; text-decoration:underline;">
-                    Google Maps
-                  </a>
-                </td>
-                <td>
-                  <span class="fw-semibold">Shuttle bus</span> will be arranged for invited guests.<br>
-                  6:00PM from IAS LT to CIELO<br>
-                  9:00PM from CIELO to IAS LT<br>
-                  <br>
-                </td>
+                <td rowspan="4" class="center-cell" style="font-weight:600; color:#006064;">June 8th, 2026</td>
+                <td style="font-weight:500; color:#00838F;">9:00-12:00 AM</td>
+                <td>Opening Ceremony<br>Oral Session</td>
               </tr>
               <tr>
-                <td class="fw-semibold">Lunch<br><span class="d-block text-secondary" style="font-size:0.96rem;">(Oct 29)</span></td>
-                <td>
-                  <span style="color:#0074D9; font-weight:600;">@ China Garden Restaurant</span><br>
-                  G/F, Academic Building, HKUST
-                </td>
-                <td>
-                  We will walk to the dining venue together. Please follow the red line on the map below. The dining venue is located near Lifts 13-15.
-                </td>
+                <td style="font-weight:500; color:#00838F;">12:00-2:00 PM</td>
+                <td>Lunch</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500; color:#00838F;">2:00-6:00 PM</td>
+                <td>Oral Session<br>Poster Session</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500; color:#00838F;">6:00-8:00 PM</td>
+                <td>Dinner</td>
+              </tr>
+              <tr>
+                <td rowspan="3" class="center-cell" style="font-weight:600; color:#006064;">June 9th, 2026</td>
+                <td style="font-weight:500; color:#00838F;">9:00-12:00 AM</td>
+                <td>Oral Session</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500; color:#00838F;">12:00-2:00 PM</td>
+                <td>Lunch</td>
+              </tr>
+              <tr>
+                <td style="font-weight:500; color:#00838F;">2:00-5:00 PM</td>
+                <td>Oral Session<br>Closing Ceremony</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="alert alert-warning py-2 px-3 mb-0 mt-3" style="font-weight:600;">
-          <i class="fa-solid fa-circle-info me-1"></i> Please note: Meals are for <span class="text-danger">invited guests only</span>.
-        </div>
       </div>
     </div>
   </section>
-
-  <!-- How to Get to HKUST -->
-  <section class="container my-5">
-    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
-      <i class="fa-solid fa-route me-2"></i>How to Get to HKUST
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-12">
-        <div class="d-flex flex-column flex-lg-row gap-3">
-          <!-- By MTR/Bus/Minibus -->
-          <div class="flex-fill" style="min-width:280px;">
-            <div class="accordion" id="accordionMTRBusMinibus">
-              <div class="accordion-item mb-3">
-                <h2 class="accordion-header" id="headingMTR">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMTR" aria-expanded="false" aria-controls="collapseMTR">
-                    <i class="fa-solid fa-train-subway me-2"></i>By MTR / Bus / Minibus
-                  </button>
-                </h2>
-                <div id="collapseMTR" class="accordion-collapse collapse" aria-labelledby="headingMTR" data-bs-parent="#accordionMTRBusMinibus">
-                  <div class="accordion-body">
-                    <ul class="mb-0">
-                      <li>
-                        The most popular way to our campus is to take MTR (Mass Transit Railway) to Hang Hau station, then
-                        take the green minibus No. 11M from the Hang Hau station to HKUST North Bus Station. The minibus
-                        costs HK$6.</li>
-                      <li>
-                        Please note that if you opt to take bus/minibus, you can only pay the fare by Octopus card or by cash (no
-                        change of coins in general).</li>
-                      <li>
-                        There are other <a href="https://cso.hkust.edu.hk/tran/pt" target="_blank" style="color:#0074D9;">possible public transports to HKUST</a> 
-                        and the <a href="https://www.mtr.com.hk/en/customer/services/system_map.html" target="_blank" style="color:#0074D9;">MTR route map</a>.
-                        </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- By Taxi -->
-          <div class="flex-fill" style="min-width:280px;">
-            <div class="accordion" id="accordionTaxi">
-              <div class="accordion-item mb-3">
-                <h2 class="accordion-header" id="headingTaxi">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTaxi" aria-expanded="false" aria-controls="collapseTaxi">
-                    <i class="fa-solid fa-taxi me-2"></i>By Taxi
-                  </button>
-                </h2>
-                <div id="collapseTaxi" class="accordion-collapse collapse" aria-labelledby="headingTaxi" data-bs-parent="#accordionTaxi">
-                  <div class="accordion-body">
-                    <ul class="mb-0">
-                      <li>
-                        Taxi fare is normally paid by cash in Hong Kong Dollar.  Foreign currencies are generally not accepted.
-                          <b>Please make sure you have enough cash to pay the taxi fare.</b>
-                      </li>
-                      <li>
-                        <b>Estimated Fare & Time:</b>  Hong Kong International Airport to HKUST ~HK$400 (40 mins). Hang Hau to HKUST ~HK$60 (10 mins).
-                      <li>
-                        You can show the address of the venue in traditional
-                          Chinese to the taxi driver.<br>香港九龍清水灣 香港科技大學 李兆基校園 盧家驄薈萃樓 香港科技大學賽馬會高等研究院
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- By Car -->
-          <div class="flex-fill" style="min-width:280px;">
-            <div class="accordion" id="accordionCar">
-              <div class="accordion-item mb-3">
-                <h2 class="accordion-header" id="headingCar">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCar" aria-expanded="false" aria-controls="collapseCar">
-                    <i class="fa-solid fa-car-side me-2"></i>Driving
-                  </button>
-                </h2>
-                <div id="collapseCar" class="accordion-collapse collapse" aria-labelledby="headingCar" data-bs-parent="#accordionCar">
-                  <div class="accordion-body">
-                    <ul class="mb-0">
-                      If you plan to drive to our campus, please contact us by email (climetgroup@gmail.com) as soon as possible. 
-                      We will need to register your vehicle before the ASI. Please provide us with the following information: Full 
-                      name of the driver, Car plate number, and Driver’s phone number for vehicle registration. 
-                      For campus parking, please find below campus map
-                        
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> <!-- flex box -->
-      </div>
-    </div>
-    <style>
-      @media (min-width: 992px) {
-        /* Set vertical accordions as columns for flex children on large screens */
-        .d-flex.flex-lg-row > .flex-fill {
-          border-right: 1px solid #efefef;
-        }
-        .d-flex.flex-lg-row > .flex-fill:last-child {
-          border-right: none;
-        }
-        .accordion {
-          box-shadow: none;
-          border: none;
-        }
-      }
-      @media (max-width: 991.98px) {
-        .d-flex.flex-lg-row {
-          flex-direction: column !important;
-        }
-        .d-flex.flex-lg-row > .flex-fill {
-          border-right: none !important;
-        }
-      }
-    </style>
-  </section>
-  
-  <!-- Campus Map -->
-  <section class="container my-5">
-    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
-      <i class="fa-solid fa-map-location-dot me-2"></i>Campus Map
-    </div>
-    <div class="text-start mb-3 fs-5" style="color:#003366;">
-      For detailed directions from North/South Gate to the venue, please refer to the campus map below:<br><br>
-      <span class="d-block mb-1"><strong>Walking:</strong> Follow the <span style="color:red; font-weight:bold;">red</span> highlighted route on the map. Look for our workshop notice boards along the way for guidance.</span>
-      <span class="d-block mb-2"><strong>Driving:</strong> The <span style="color:green; font-weight:bold;">green</span> highlighted route indicates the recommended driving path to the venue.</span>
-    </div>
-    <div class="text-center">
-      <img src="photo/img/ias_map.png" alt="HKUST Campus Map" class="img-fluid rounded shadow-lg" style="max-width:100%; height:auto; border:4px solid #b2e0f6;">
-    </div>
-  </section>
-
-
-
-
-
 </body>
-
-
 </html>
