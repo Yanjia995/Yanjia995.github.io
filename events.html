@@ -3,200 +3,576 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <title>CliMet Lab - Events</title>
     <link rel="stylesheet" href="css/index.css">
     
     <style>
-        /* --- 样式强制修正式区 --- */
-        
-        /* 1. 基础表格：清晰实线边框 */
-        .agenda-table {
+        /* --- 核心样式强制修正 --- */
+        .custom-table {
             border-collapse: collapse !important;
             width: 100% !important;
             background-color: white !important;
-            border: 1px solid #B0BEC5 !important; /* 浅灰色边框线 */
-        }
-
-        .agenda-table th, .agenda-table td {
-            border: 1px solid #B0BEC5 !important; 
-            padding: 15px !important;
-        }
-
-        /* 2. 表头：浅蓝绿色 (与按钮色调相近) */
-        .agenda-table thead tr {
-            background-color: #B2EBF2 !important; /* 浅蓝绿，接近按钮色 */
-        }
-        .agenda-table thead th {
-            background-color: #B2EBF2 !important;
-            color: #003366 !important; /* 深蓝色文字，保持易读 */
+            border: 1px solid #A5D6A7 !important; 
             text-align: center !important;
-            font-weight: 700 !important;
-            text-transform: uppercase;
+            margin-bottom: 2.5rem;
         }
 
-        /* 3. 交替行背景 */
-        .agenda-table tbody tr:nth-of-type(odd) {
-            background-color: #FAFFFF !important;
-        }
-        .agenda-table tbody tr:nth-of-type(even) {
-            background-color: #F0F8F8 !important;
-        }
-
-        /* 4. 居中与靠左对齐类 */
-        .center-cell {
-            text-align: center !important;
-            vertical-align: middle !important;
-        }
-        .left-cell {
-            text-align: left !important;
+        .custom-table th, .custom-table td {
+            border: 1px solid #A5D6A7 !important; 
+            padding: 12px 15px !important;
             vertical-align: middle !important;
         }
 
-        /* 5. 注册按钮样式保持一致 */
-        .custom-register-btn {
-            background: rgb(178, 224, 246);
-            color: #003366;
-            border-radius: 30px;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            transition: background 0.3s, color 0.3s;
+        /* Agenda 与 注册表头颜色：浅蓝绿色 */
+        .agenda-table thead tr, .reg-table thead tr { background-color: #B2EBF2 !important; }
+        .agenda-table thead th, .reg-table thead th { color: #003366 !important; font-weight: 700 !important; }
+
+        .green-bold { color: #2E7D32 !important; font-weight: 600 !important; }
+        .secondary-text { color: #43A047 !important; font-size: 0.9rem; }
+        
+        .custom-table tbody tr:nth-of-type(odd) { background-color: #F9FFFE !important; }
+        .custom-table tbody tr:nth-of-type(even) { background-color: #F1FBF9 !important; }
+
+        /* 按钮对齐与样式 */
+        .btn-custom-group {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .custom-btn {
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: none;
+            display: inline-block;
         }
-        .custom-register-btn:hover {
-            background: #80DEEA;
-            color: #003366;
+
+        .reg-btn { background: rgb(178, 224, 246); color: #003366; }
+        .reg-btn:hover { background: #80DEEA; transform: translateY(-2px); }
+
+        .abstract-btn { background: #C8E6C9; color: #1B5E20; }
+        .abstract-btn:hover { background: #A5D6A7; transform: translateY(-2px); }
+
+        /* 会议背景整块排版 */
+        .background-card {
+            border-left: 5px solid #003366;
+            background-color: #fcfdfd;
+            padding: 40px;
+            border-radius: 0 10px 10px 0;
+        }
+        .para-en { color: #333; line-height: 1.7; font-size: 1.05rem; text-align: justify; margin-bottom: 25px; }
+        .para-zh { color: #666; line-height: 1.7; font-size: 1rem; border-top: 1px solid #eee; padding-top: 25px; }
+
+        /* 重要日期区块 */
+        .date-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #A5D6A7; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .date-item { padding: 12px 0; border-bottom: 1px dashed #e0e0e0; }
+        .date-item:last-child { border-bottom: none; }
+        /* 详细日程样式 */
+        .detailed-schedule-table thead tr { background-color: #F0F4C3 !important; }
+        .detailed-schedule-table thead th { color: #33691E !important; font-weight: 700 !important; }
+        .session-title { font-weight: 700; color: #003366; }
+        .speaker-info { color: #388E3C; font-size: 0.97rem; }
+        .detail-time { color: #8D6E63; font-size: 0.95rem; }
+
+        @media (max-width: 575.98px) {
+            .background-card { padding: 18px; }
+            .table-responsive { font-size: 0.97rem; }
         }
     </style>
 </head>
 <body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="photo/bcpic/logo.png" class="rounded" alt="" style="width:60px;">
-        </a>
-        <span class="navbar-text fw-bold fs-3" style="color: white;">CliMet Lab</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-            <ul class="nav navbar-nav fs-4">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="teaching.html">Teaching</a></li>
-                <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-                <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="data.html">Data</a></li>
-                <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="#cu">Contact us</a></li>
-            </ul>
-        </div>
-    </div>
-  </nav>
-
-  <section class="container my-5">
-    <div class="row align-items-center bg-light rounded shadow p-4">
-      <div class="col-md-5 text-center mb-3 mb-md-0">
-        <img src="photo/new/methane.png" alt="Conference Poster" class="img-fluid rounded border" style="max-height:340px;">
-      </div>
-      <div class="col-md-7">
-        <h2 class="fw-bold mb-2" style="color:#003366;">2026 International Workshop on Methane Observation and Quantification</h2>
-        <div class="fs-5 mb-2">
-            <i class="fa-solid fa-calendar-days me-2" style="color:#003366;"></i>8-9 June, 2026<br>
-            <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>Hong Kong University of Science and Technology (HKUST)<br>
-            <i class="fa-solid fa-video me-2" style="color:#003366;"></i>Zoom ID: 95914100125; Passcode: 587070<br>
-            <i class="fa-solid fa-link me-1" style="color:#003366;"></i>Registration Link: 
-            <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" style="color:#0074D9; word-break:break-all;">
-                https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="photo/bcpic/logo.png" class="rounded" alt="" style="width:60px;">
             </a>
+            <span class="navbar-text fw-bold fs-3" style="color: white;">CliMet Lab</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                <ul class="nav navbar-nav fs-4">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teaching.html">Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="research.html">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="#">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data.html">Data</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="members.html">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cu">Contact us</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="text-center my-4">
-    <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" class="btn btn-lg px-5 py-2 fw-bold shadow custom-register-btn">
-      Click here for Registration
-    </a>
-  </div>
-
-  <section class="container my-5">
-    <div class="row">
-      <div class="col-lg-10 mx-auto">
-        <div class="bg-light rounded shadow p-5" style="border-left: 5px solid #003366;">
-          <h3 class="fw-bold mb-3" style="color:#003366;"><i class="fa-solid fa-lightbulb me-2"></i>Background</h3>
-          <p class="fs-5 mb-3" style="color:#333; line-height:1.6;">Methane emission reduction is a crucial imperative for curbing near-term global temperature rise and achieving significant climate benefits. However, the effectiveness of this effort hinges on the accuracy of emission monitoring and quantification. To meet this need, an integrated monitoring system that combines space-based, aerial, and ground-based technologies becomes indispensable for developing science-informed mitigation strategies.</p>
-          <p class="fs-5 mb-3" style="color:#333; line-height:1.6;">Following the success of the previous workshops from 2023 to 2025, we are pleased to invite the global community to reconvene in Hong Kong for the 4th International Workshop on Methane Observation and Quantification.</p>
-          <p class="fs-5" style="color:#333; line-height:1.6;">Designed as a premier global forum, this workshop will convene leading scholars and experts to collectively advance the science and technology of methane observation and quantification. Our goal is to forge the robust scientific foundation necessary to achieve global climate governance goals.</p>
+    </nav>
+    <section class="container my-5">
+        <div class="p-4 rounded shadow-sm bg-light">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold" style="color:#003366;">2026 International Workshop on Methane Observation and Quantification</h2>
+                <h3 class="fw-bold" style="color:#003366;">第四届甲烷观测与量化国际研讨会</h3>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-5 text-center">
+                    <img src="photo/new/methane.png" alt="Poster" class="img-fluid rounded border shadow-sm" style="max-height:350px;">
+                </div>
+                <div class="col-md-7 fs-5">
+                <div class="ps-md-4" style="width: 100%; box-sizing: border-box; overflow-x: hidden;">
+                    <p style="margin-bottom: 10px;">
+                        <i class="fa-solid fa-calendar-days me-2" style="color:#003366;"></i>8-9 June, 2026 / 2026年6月8-9日
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <i class="fa-solid fa-house-laptop me-2" style="color:#003366;"></i>Mode: In-person & Online / 主要形式：线下高质量讲座 & 线上直播
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>The Hong Kong University of Science and Technology / 香港科技大学
+                    </p>
+                    <p style="margin-bottom: 10px;">
+                        <i class="fa-solid fa-video me-2" style="color:#003366;"></i>Zoom ID: 95914100125 (Password / 密码: 587070)
+                    </p>
+                    <p class="info-link" style="margin-bottom: 10px; word-break: break-all; overflow-wrap: break-word;">
+                        <i class="fa-solid fa-link me-2" style="color:#003366;"></i>Registration / 注册参会: <br>
+                        <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" class="url-text" style="color: #009966; text-decoration: underline;">https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268</a>
+                    </p>
+                    <p class="info-link" style="margin-bottom: 10px; word-break: break-all; overflow-wrap: break-word;">
+                        <i class="fa-solid fa-file-lines me-2" style="color:#003366;"></i>Abstract Submission / 摘要提交: <br>
+                        <a href="https://forms.office.com/r/Yfx6JP5YK0" target="_blank" class="url-text" style="color: #009966; text-decoration: underline;">https://forms.office.com/r/Yfx6JP5YK0</a>
+                    </p>
+                    <div class="btn-custom-group mt-4">
+                        <a href="https://event-reg.hkust.edu.hk/hkust-mcp/checkout/268" target="_blank" class="custom-btn reg-btn">Registration / 注册参会</a>
+                        <a href="https://forms.office.com/r/Yfx6JP5YK0" target="_blank" class="custom-btn abstract-btn">Submit Abstract / 摘要提交</a>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container my-5">
-    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
-      <i class="fa-solid fa-calendar-alt me-2"></i>General Agenda
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <div class="table-responsive">
-          <table class="table align-middle agenda-table">
+    </section>
+    <section class="container my-5">
+        <div class="col-lg-10 mx-auto">
+        <h3 class="fw-bold mb-4" style="color:#003366;"><i class="fa-solid fa-lightbulb me-2"></i>Background / 会议背景</h3>
+        <div class="background-card shadow-sm">
+            <div class="para-en">
+                Methane emission reduction is a crucial imperative for curbing near-term global temperature rise and achieving significant climate benefits. However, the effectiveness of this effort hinges on the accuracy of emission monitoring and quantification. To meet this need, an integrated monitoring system that combines space-based, aerial, and ground-based technologies becomes indispensable for developing science-informed mitigation strategies.<br><br>
+                Following the success of the previous workshops from 2023 to 2025, we are pleased to invite the global community to reconvene in Hong Kong for the 4th International Workshop on Methane Observation and Quantification. The event will be held at the Hong Kong University of Science and Technology on June 8–9, 2026.<br><br>
+                Designed as a premier global forum, this workshop will convene leading scholars and experts to collectively advance the science and technology of methane observation and quantification. Our goal is to forge the robust scientific foundation necessary to achieve global climate governance goals.<br><br>
+                We warmly look forward to your participation in this collective endeavor to strengthen the scientific foundation and global collaboration essential for methane emission reduction.
+            </div>
+            <div class="para-zh">
+                甲烷减排是短期内控制全球温升、产生显著气候效益的关键行动，其成效高度依赖于排放监测与量化的精准性。为此，融合天、空、地多种技术手段的一体化监测体系，已成为科学支撑减排决策的核心。<br><br>
+                为促进本领域的国际合作与学术创新，继2023-2025年成功举办三届会议后，我们谨此诚邀全球同仁共聚香江。第四届甲烷观测与量化国际研讨会定于2026年6月8日至9日，在香港科技大学召开。<br><br>
+                本届研讨会旨在打造一个高水平的全球性交流平台，汇聚领域内顶尖学者与专家，共同探讨如何提升甲烷观测与量化的理论前沿与技术应用水平，以坚实的科学支撑，助力全球气候治理目标的实现。<br><br>
+                我们热忱期待您的莅临，携手为强化甲烷减排的科学基础与国际合作贡献力量。
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="container my-5">
+        <h3 class="text-center fw-bold mb-4" style="color:#003366;"><i class="fa-solid fa-calendar-alt me-2"></i>General Agenda / 总体日程</h3>
+        <div class="table-responsive col-lg-10 mx-auto">
+        <table class="table custom-table agenda-table">
             <thead>
-              <tr>
-                <th style="width: 25%;">Date</th>
-                <th style="width: 25%;">Time (UTC+8)</th>
-                <th>Agenda</th>
-              </tr>
+            <tr><th style="width:25%;">Date / 日期</th><th style="width:25%;">Time (UTC+8, Hong Kong Time) / 时间 (东八区，香港时间)</th><th>Agenda / 日程安排</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="left-cell" style="font-weight:600; color:#006064;">June 7th, 2026</td>
-                <td class="left-cell" style="font-weight:500; color:#00838F;">4:00-6:00 PM</td>
-                <td class="left-cell">Registration</td>
-              </tr>
-              <tr>
-                <td rowspan="4" class="center-cell" style="font-weight:600; color:#006064;">June 8th, 2026</td>
-                <td style="font-weight:500; color:#00838F;">9:00-12:00 AM</td>
-                <td>Opening Ceremony<br>Oral Session</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500; color:#00838F;">12:00-2:00 PM</td>
-                <td>Lunch</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500; color:#00838F;">2:00-6:00 PM</td>
-                <td>Oral Session<br>Poster Session</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500; color:#00838F;">6:00-8:00 PM</td>
-                <td>Dinner</td>
-              </tr>
-              <tr>
-                <td rowspan="3" class="center-cell" style="font-weight:600; color:#006064;">June 9th, 2026</td>
-                <td style="font-weight:500; color:#00838F;">9:00-12:00 AM</td>
-                <td>Oral Session</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500; color:#00838F;">12:00-2:00 PM</td>
-                <td>Lunch</td>
-              </tr>
-              <tr>
-                <td style="font-weight:500; color:#00838F;">2:00-5:00 PM</td>
-                <td>Oral Session<br>Closing Ceremony</td>
-              </tr>
+            <tr><td class="green-bold">June 7, 2026</td><td class="secondary-text">4:00-6:00 PM</td><td>Registration<br>注册</td></tr>
+            <tr><td rowspan="4" class="green-bold">June 8, 2026</td><td class="secondary-text">9:00-12:00 AM</td><td>Opening Ceremony & Oral Session<br>开幕式 & 主题报告</td></tr>
+            <tr><td class="secondary-text">12:00-2:00 PM</td><td>Lunch<br>午餐</td></tr>
+            <tr><td class="secondary-text">2:00-6:00 PM</td><td>Oral Sessions & Poster Sessions<br>主题报告 & 海报展示</td></tr>
+            <tr><td class="secondary-text">6:00-8:00 PM</td><td>Dinner<br>晚餐</td></tr>
+            <tr><td rowspan="3" class="green-bold">June 9, 2026</td><td class="secondary-text">9:00-12:00 AM</td><td>Oral Session<br>主题报告</td></tr>
+            <tr><td class="secondary-text">12:00-2:00 PM</td><td>Lunch<br>午餐</td></tr>
+            <tr><td class="secondary-text">2:00-5:00 PM</td><td>Oral Session & Closing Ceremony<br>主题报告 & 闭幕式</td></tr>
             </tbody>
-          </table>
+        </table>
+        </div>
+    </section>
+
+    <section class="container my-5">
+      <h3 class="text-center fw-bold mb-4" style="color:#003366;">
+        <i class="fa-solid fa-list-ul me-2"></i>Detailed Agenda / 详细日程
+      </h3>
+      <div class="col-lg-10 mx-auto">
+        <!-- Agenda Pagination Navigation -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="agendaTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="agenda-day1-tab" data-bs-toggle="pill" data-bs-target="#agenda-day1" type="button" role="tab" aria-controls="agenda-day1" aria-selected="true">
+              Day 1: June 7, 2026
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="agenda-day2-tab" data-bs-toggle="pill" data-bs-target="#agenda-day2" type="button" role="tab" aria-controls="agenda-day2" aria-selected="false">
+              Day 2: June 8, 2026
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="agenda-day3-tab" data-bs-toggle="pill" data-bs-target="#agenda-day3" type="button" role="tab" aria-controls="agenda-day3" aria-selected="false">
+              Day 3: June 9, 2026
+            </button>
+          </li>
+        </ul>
+        <!-- Hidden Raw Agenda Data -->
+        <pre id="raw-agenda-data" style="display: none;">
+June 7, 2026 | 4:00-6:00PM | | Registration (注册报到)
+June 8, 2026 | 9:00-9:30 | | Opening Remarks (开幕致辞)
+June 8, 2026 | 9:30-9:45 | Robert Field | UNEP's International Methane Emissions Observatory / 联合国环境规划署国际甲烷排放观测站 (TBD)
+June 8, 2026 | 9:45-10:00 | Steven Wofsy | Harvard University / 哈佛大学 (TBD)
+June 8, 2026 | 10:00-10:15 | 刘银年 (Yinnian Liu) | Roadmap of Spaceborne Hyperspectral Methane Monitoring Technology / 星载高光谱甲烷监测技术发展路线简图 [cite: 52]
+June 8, 2026 | 10:15-10:30 | Dave Risk | Beyond Point Sources: Lessons from the SIMFLEX Experimental Program on Measuring Dispersed Methane Emissions Across Sectors and Scales / 点源之外：SIMFLEX 实验项目关于跨行业、多尺度分散甲烷排放测量的经验 [cite: 52]
+June 8, 2026 | 10:30-10:50 | | Coffee Break (茶歇) [cite: 52]
+June 8, 2026 | 10:50-11:05 | Shane Murphy | University of Wyoming / 怀俄明大学 (TBD) [cite: 52]
+June 8, 2026 | 11:05-11:20 | 陈辉林 (Huilin Chen) | Observation-based quantification of Methane Emissions from Wastewater Treatment Plants in China / 基于观测数据的中国污水处理厂甲烷排放核算 [cite: 52]
+June 8, 2026 | 11:20-11:35 | Itziar Irakulis-Loitxate | UNEP’s Methane Alert and Response System: from satellite observations to methane mitigation / 联合国环境规划署甲烷预警与响应系统：从卫星观测到甲烷减排 [cite: 52]
+June 8, 2026 | 11:35-11:50 | 解东来 (Donglai Xie) | Measurement of Methane Emissions from Household Gas Stoves / 家用燃气灶甲烷排放量化 [cite: 52]
+June 8, 2026 | 11:50-12:05 | Ira Leifer | In situ verification of satellite-detected, enhanced geogas emissions in the Death Valley region after the 2019 Ridgecrest Earthquake / 2019年Ridgecrest地震后死亡谷地区地气排放增强的卫星探测与实地验证 [cite: 52]
+June 8, 2026 | 12:05-14:00 | | Lunch (午餐) [cite: 52]
+June 8, 2026 | 14:00-14:15 | 郑秀钟 (Sujong Jeong) | Integrated Methane Monitoring and Modeling in Korea: Bridging Ground, Mobile, and Satellite Observations / 韩国综合甲烷监测与建模：地面、移动与卫星观测的融合 [cite: 56]
+June 8, 2026 | 14:15-14:30 | 鲁玺 (Xi Lu) | From Detection to Verification: Building Measurement-Based Methane MRV through Integrated Satellite and Mobile Monitoring / 从排放发现到核证闭环：基于卫星与走航融合观测的甲烷排放MRV能力构建 [cite: 56]
+June 8, 2026 | 14:30-14:45 | Elfie Roy | Bridging the measurement gap: accurate quantification as a prerequisite for credible CMM mitigation / 填补测量空白：精准量化是实现可信煤矿甲烷减排的先决条件 [cite: 56]
+June 8, 2026 | 14:45-15:00 | 费璕瑺 (Xunchang Fei) | Methane Emissions from Landfills Differentially Underestimated Worldwide / 全球垃圾填埋场甲烷排放的差异性低估 [cite: 56]
+June 8, 2026 | 15:00-15:15 | 郑博 (Bo Zheng) | Trends, drivers, and targeted mitigation opportunities of China's anthropogenic methane emissions / 中国人为甲烷排放的趋势、驱动因素及精准减排机遇 [cite: 56]
+June 8, 2026 | 15:15-15:30 | 绪伟凡 (Weifan Xu) | HKUST / 香港科技大学 (TBD) [cite: 56]
+June 8, 2026 | 15:30-15:50 | | Coffee Break (茶歇) [cite: 56]
+June 8, 2026 | 15:50-16:00 | (Lightning) 徐宸 / 王郭琳 | 高分辨率TROPOMI反演东南亚甲烷排放 / 中国甲烷减排治理政策视角 [cite: 56]
+June 8, 2026 | 16:00-16:20 | (Lightning) 刘艳秋 / 张子龙 / 邱嘉馨 / 汤讯 | 山西主要煤盆地至京津冀甲烷输送效应 / SIGMA-DB中国煤矿卫星影像数据库 / 全球野火甲烷排放热点 [cite: 56]
+June 8, 2026 | 16:20-16:40 | (Lightning) 赵鹏飞 / 洪溥 / 肖千 / 李一凡 | 中国区域尺度二十年甲烷收支 / 中国页岩气发展新范式 / TROPOMI XCH₄数据时空重建 [cite: 56]
+June 8, 2026 | 16:40-17:05 | (Lightning) 钟慧茹 / 徐佳玲 / 王家辉 / 秦静然 / 陈圆圆 | 新增地面观测对优化中国甲烷排放增益 / 大型煤矿甲烷排放估算 [cite: 56]
+June 8, 2026 | 17:05-18:00 | | Poster Session (海报展示) [cite: 56]
+June 8, 2026 | 18:00-20:00 | | Dinner (晚宴) [cite: 56]
+June 9, 2026 | 9:00-9:15 | Felicia A. Ruiz | Coal Mine Methane and Strategic Partnerships / 煤矿甲烷与战略合作 (TBD) [cite: 60]
+June 9, 2026 | 9:15-9:30 | 翟成兴 (Chengxing Zhai) | HKUST / 香港科技大学 (TBD) [cite: 60]
+June 9, 2026 | 9:30-9:45 | 杰森科恩 (Jason Cohen) | Beyond linearity: Quantifying the substantial effects of long range transport and absorbing aerosols on satellite based methane emission estimation and attribution / 非线性：量化长距离输送与吸收性气溶胶对基于卫星的甲烷排放估算及归因的显著影响 [cite: 60]
+June 9, 2026 | 9:45-10:00 | 秦凯 (Kai Qin) | Integrated Estimation of Coal Mine Methane Emissions in China Using Satellite, Surface, and Underground Observations / 基于天地井一体化观测估算中国煤矿甲烷排放 [cite: 60]
+June 9, 2026 | 10:00-10:15 | Ajay K. Singh | Evaluating fugitive methane emissions from abandoned underground coal mines in India / 评估印度废弃地下煤矿的逃逸甲烷排放 [cite: 60]
+June 9, 2026 | 10:15-10:45 | | Coffee Break (茶歇) [cite: 60]
+June 9, 2026 | 10:45-11:00 | Udayan Singh | Could fugitive methane emissions from coal exploration be a blind spot for greenhouse gas inventories? / 煤炭勘探过程中的逃逸甲烷排放是否会成为温室气体清单的盲区？ [cite: 60]
+June 9, 2026 | 11:00-11:15 | 韩舸 (Ge Han) | Constraining Annual Coal Mine Methane Emissions with Multi-Temporal Hyperspectral Satellite Observations / 基于多时相高光谱卫星观测的年度煤矿甲烷排放约束 [cite: 60]
+June 9, 2026 | 11:15-11:30 | 涂庆毅 (Qingyi Tu) | Current Status of Methane Emission Reduction and Utilization Technologies in Coal Mines and Abandoned Coal Mines / 煤矿及废弃煤矿甲烷减排与利用技术现状 [cite: 60]
+June 9, 2026 | 11:30-11:45 | 李湘 (Xiang Li) | Facilitating the integration of satellite-based methane monitoring data into emissions inventory preparation and terrestrial supervision / 推动甲烷卫星监测数据融入排放清单准备及地面监管工作 [cite: 60]
+June 9, 2026 | 11:45-12:00 | 崔语嫣 (Yuyan Cui) | Regional High-Resolution Methane Emissions Estimated Using TROPOMI and WRF-GHG/Chem-DART and Comparisons Across Multiple Systems / 基于TROPOMI和WRF-GHG/Chem-DART的区域高分辨率甲烷排放估算及多系统对比 [cite: 60]
+June 9, 2026 | 12:00-12:15 | 卢骁 (Xiao Lu) | Revised global methane budget inferred from inverse analysis of integrated methane and isotope observations / 基于甲烷与同位素观测反演的全球甲烷收支修正 [cite: 60]
+June 9, 2026 | 12:15-14:00 | | Lunch (午餐) [cite: 60]
+June 9, 2026 | 14:00-14:15 | 张秀英 (Xiuying Zhang) | Detection on global onshore gas flaring from Sentinel-2 MSI images / 基于Sentinel-2 MSI影像识别全球陆上天然气燃除 [cite: 64]
+June 9, 2026 | 14:15-14:30 | 陈子冲 (Zichong Chen) | Tropical Wetland Methane Emission Inventory (WMEI) for 2004-2023 inferred from Landsat-based inundated vegetation data / 基于Landsat卫星淹没植被数据反演的2004-2023年热带湿地甲烷排放清单 [cite: 64]
+June 9, 2026 | 14:30-14:45 | 郭美瑜 (Meiyu Guo) | Evaluating Global Methane Mitigation Policies: A Multi-Source Structural Break Analysis / 全球甲烷减排政策评估：多源结构断点分析 [cite: 64]
+June 9, 2026 | 14:45-15:00 | 裴志鹏 (Zhipeng Pei) | Enhancing CH4 Quantification Accuracy: A Scene-based Spectral Calibration Approach for Imaging Spectrometers / 提高甲烷量化精度：基于场景的成像光谱仪光谱定标法 [cite: 64]
+June 9, 2026 | 15:00-15:15 | 冯树状 (Shuzhuang Feng) | Estimating anthropogenic methane emissions in China using a high-resolution regional methane assimilation system / 基于高分辨率区域甲烷同化系统估算中国人为甲烷排放 [cite: 64]
+June 9, 2026 | 15:15-15:45 | | Coffee Break (茶歇) [cite: 64]
+June 9, 2026 | 15:45-16:00 | 张晓楠 (Xiaonan Zhang) | Environmental Defense Fund / 美国环保协会 [cite: 64]
+June 9, 2026 | 16:00-16:15 | 朱思虹 (Sihong Zhu) | Significant response of methane in the upper troposphere to subseasonal variability in the Asian monsoon anticyclone / 对流层上层甲烷对亚洲季风反气旋次季节变率的显著响应 [cite: 64]
+June 9, 2026 | 16:15-16:30 | 臧昆鹏 (Kunpeng Zang) | A self-developed headspace Gas Chromatograph method for measuring dissolved methane / 一种自主研发的用于测定溶解甲烷的顶空气相色谱法 [cite: 64]
+June 9, 2026 | 16:30-16:45 | 张志荣 (Zhirong Zhang) | Laser technology for methane leakage cloud imaging and quantification of leakage rate / 用于甲烷泄漏云团成像与泄漏率定量的激光技术 [cite: 64]
+June 9, 2026 | 16:45-17:00 | 钟慧茹 (Huiru Zhong) | Fossil fuel methane emission trends (2019–2024) inferred from high-resolution satellite observations / 基于高分辨率卫星数据的化石燃料甲烷排放趋势（2019–2024年） [cite: 64]
+June 9, 2026 | 17:00-17:15 | Matthieu Dogniaux | Space Research Organisation Netherlands (TBD) [cite: 64]
+June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks (颁奖及闭幕式) [cite: 64]
+        </pre>
+        <div class="tab-content" id="agendaTabContent">
+          <div class="tab-pane fade show active" id="agenda-day1" role="tabpanel" aria-labelledby="agenda-day1-tab">
+            <div id="agenda-table-day1"></div>
+          </div>
+          <div class="tab-pane fade" id="agenda-day2" role="tabpanel" aria-labelledby="agenda-day2-tab">
+            <div id="agenda-table-day2"></div>
+          </div>
+          <div class="tab-pane fade" id="agenda-day3" role="tabpanel" aria-labelledby="agenda-day3-tab">
+            <div id="agenda-table-day3"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <script>
+      // Utility function for smart parsing: split to date | time | speaker | institute | title
+      function parseAgendaLine(line) {
+        let parts = line.split('|').map(s => s.trim());
+        if (parts.length < 5) {
+          // try to infer missing fields
+          // for Lunch, Dinner, Poster etc. often speaker and institute are empty
+          if (parts.length === 4) {
+            return {
+              date: parts[0],
+              time: parts[1],
+              speaker: parts[2] || '',
+              institute: '',
+              title: parts[3] || ''
+            };
+          } else if (parts.length === 3) {
+            return {
+              date: parts[0],
+              time: parts[1],
+              speaker: '',
+              institute: '',
+              title: parts[2] || ''
+            };
+          } else if (parts.length === 2) {
+            return {
+              date: parts[0],
+              time: parts[1],
+              speaker: '',
+              institute: '',
+              title: ''
+            };
+          } else {
+            return {
+              date: parts[0] || '',
+              time: '',
+              speaker: '',
+              institute: '',
+              title: ''
+            };
+          }
+        }
+        // Standard agenda line: Date | Time | Speaker | Institute | Title
+        return {
+          date: parts[0],
+          time: parts[1],
+          speaker: parts[2],
+          institute: parts[3],
+          title: (parts.slice(4).join('|') || '')
+        };
+      }
+
+      // Smart day splitting, same as before
+      function splitAgendaByDay(items) {
+        const day1 = [];
+        const day2 = [];
+        const day3 = [];
+        for (const item of items) {
+          if (item.date.includes('June 7, 2026')) day1.push(item);
+          else if (item.date.includes('June 8, 2026')) day2.push(item);
+          else if (item.date.includes('June 9, 2026')) day3.push(item);
+        }
+        return {day1, day2, day3};
+      }
+
+      // Determine if an item is lunch/dinner/coffee/poster/award/break/registration by keywords
+      function isSessionMerged(item) {
+        if (!item) return false;
+        const lowerTitle = (item.title || '').toLowerCase();
+        const keywords = [
+          'lunch',
+          'dinner',
+          'coffee',
+          'break',
+          'poster',
+          'award',
+          'registration',
+          'remarks',
+          'opening',
+          'closing',
+          'session',
+        ];
+        // Any keyword in title means this row should use merged display
+        return keywords.some(kw => lowerTitle.includes(kw));
+      }
+
+      /**
+       * Renders agenda table in required smart-merged layout:
+       * - 1st column: Time (no date)
+       * - 2nd: Speaker (newline) Institute (if exists)
+       * - 3rd: Title
+       * For merged rows, 2nd and 3rd are merged as colspan=2
+       */
+      function renderDetailedAgendaTable(items) {
+        if (!items.length) return '<div class="text-center text-muted my-5">No agenda available for this day.</div>';
+        let html = `<div class="table-responsive"><table class="table custom-table agenda-table">
+          <thead>
+            <tr>
+              <th style="width:13%;">Time / 时间</th>
+              <th style="width:22%;">Speaker / 主讲人<br><span style="font-weight:normal;font-size:88%">(Institution / 单位)</span></th>
+              <th>Title / 报告题目或环节</th>
+            </tr>
+          </thead>
+          <tbody>
+        `;
+        for (const item of items) {
+          const speakerCell = item.speaker
+            ? `<strong>${item.speaker}</strong>${item.institute ? `<br><span class="text-muted">${item.institute}</span>` : ''}`
+            : (item.institute ? `<span class="text-muted">${item.institute}</span>` : '');
+
+          // For Lunch/Dinner/Break etc, merge two columns
+          if (isSessionMerged(item)) {
+            html += `
+              <tr>
+                <td class="secondary-text">${item.time || ''}</td>
+                <td colspan="2" style="text-align: left;"><span style="font-weight:600;">${item.title || speakerCell}</span></td>
+              </tr>
+            `;
+          } else {
+            html += `
+              <tr>
+                <td class="secondary-text">${item.time || ''}</td>
+                <td>${speakerCell}</td>
+                <td style="text-align:left;">${item.title || ''}</td>
+              </tr>
+            `;
+          }
+        }
+        html += `</tbody></table></div>`;
+        return html;
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Parse all lines to 5-part objects
+        const raw = document.getElementById('raw-agenda-data').textContent.trim();
+        const lines = raw.split('\n').filter(l => l.trim());
+        const items = lines.map(parseAgendaLine);
+        const {day1, day2, day3} = splitAgendaByDay(items);
+        document.getElementById('agenda-table-day1').innerHTML = renderDetailedAgendaTable(day1);
+        document.getElementById('agenda-table-day2').innerHTML = renderDetailedAgendaTable(day2);
+        document.getElementById('agenda-table-day3').innerHTML = renderDetailedAgendaTable(day3);
+      });
+    </script>
+    
+    <section class="container my-5">
+        <h3 class="text-center fw-bold mb-4" style="color:#003366;"><i class="fa-solid fa-file-invoice-dollar me-2"></i>Registration Details / 注册详情</h3>
+        <div class="col-lg-10 mx-auto">
+          <div class="table-responsive mb-4">
+            <table class="table custom-table reg-table">
+              <thead>
+                <tr>
+                  <th>Category / 类别</th>
+                  <th>Early Bird (Before March 31, 2026) / 早鸟优惠 (2026年3月31日前注册)</th>
+                  <th>After March 31, 2026 / 2026年3月31日后注册</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="green-bold">Standard / 标准</td><td>2000 HKD</td><td>2500 HKD</td></tr>
+                <tr><td class="green-bold">Student / 学生</td><td>1000 HKD</td><td>1250 HKD</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="bg-light p-4 rounded shadow-sm border-start border-5 border-success mb-4">
+            <p class="mb-3"><strong><i class="fa-solid fa-microphone-lines me-2"></i>Call for Submissions:</strong> This workshop invites oral and poster presentations. Oral presentations are 15 minutes (including Q&A). <br> 本次研讨会面向全体参会者征集口头报告和学术海报。口头报告每人15分钟（含问答）。</p>
+            <p class="mb-3"><strong><i class="fa-solid fa-award me-2"></i>Best Poster Presentation Award:</strong> Winners will be announced during the Closing Ceremony. <br> 本次研讨会特设“优秀学术海报奖”，评选结果于闭幕式公布。</p>
+            <p class="mb-3"><strong><i class="fa-solid fa-hotel me-2"></i>Accommodation:</strong> The Royal Garden Kowloon East is recommended for its proximity. <br> 住宿推荐：香港九龙东帝苑酒店。该酒店距离会场最近，方便参会。</p>
+            <p class="mb-0"><strong><i class="fa-solid fa-bus me-2"></i>Shuttle Bus:</strong> Daily shuttle services between the hotel and venue will be provided. Detailed arrangements will be released via email closer to the date of the workshop.<br> 会议期间提供酒店与会场间的每日通勤班车，详细安排于临近会期时通过邮件统一发布。</p>
+          </div>
+        </div>
+    </section>
+    <section class="container my-5">
+        <h3 class="text-center fw-bold mb-4" style="color:#003366;"><i class="fa-solid fa-calendar-check me-2"></i>Important Dates / 重要日期</h3>
+        <div class="col-lg-8 mx-auto date-box">
+        <div class="date-item d-flex justify-content-between align-items-center">
+            <span>Registration Begins / 注册开始</span>
+            <span class="green-bold">February 2, 2026 / 2026年2月2日</span>
+        </div>
+        <div class="date-item d-flex justify-content-between align-items-center">
+            <span>Abstract Submission Deadline / 摘要提交截止</span>
+            <span class="green-bold">March 20, 2026 / 2026年3月20日</span>
+        </div>
+        <div class="date-item d-flex justify-content-between align-items-center">
+            <span>Email Notification of Acceptance / 邮件发送摘要接收通知</span>
+            <span class="green-bold">By March 25, 2026 / 2026年3月25日前</span>
+        </div>
+        <div class="date-item d-flex justify-content-between align-items-center">
+            <span>Early Bird Registration Deadline / 早鸟优惠截止</span>
+            <span class="green-bold">March 31, 2026 / 2026年3月31日</span>
+        </div>
+        <div class="date-item d-flex justify-content-between align-items-center">
+            <span>Registration Deadline / 注册最终截止</span>
+            <span class="green-bold">May 20, 2026 / 2026年5月20日</span>
+        </div>
+        </div>
+    </section>
+    <section class="container my-5">
+        <h3 class="text-center fw-bold mb-4" style="color:#003366;"><i class="fa-solid fa-users me-2"></i>Organizations / 会议组织</h3>
+        <div class="table-responsive col-lg-10 mx-auto">
+        <table class="table custom-table">
+            <tbody>
+            <tr><td style="width:35%;" class="green-bold">Host / 主办单位</td><td>The Hong Kong University of Science and Technology (HKUST)<br>香港科技大学</td></tr>
+            <tr><td class="green-bold">Organizer / 承办单位</td><td>Space Science and Technology Institute, HKUST<br>香港科技大学太空科学与技术研究院</td></tr>
+            <tr><td class="green-bold">Co-Organizers / 协办单位</td><td>China University of Mining and Technology (CUMT)<br>UNEP International Methane Emissions Observatory<br>Environmental Defense Fund, Beijing Office
+                <br>Atmospheric Environmental Remote Sensing Society (AERSS)
+            <br>中国矿业大学<br>联合国环境规划署国际甲烷排放观测站<br>美国环保协会（EDF）北京代表处<br>国际大气环境遥感学会
+            </td></tr>
+            <tr><td class="green-bold">Organizing Committee Chair / 组织委员会主席</td><td>Hui Su, HKUST<br>苏慧，香港科技大学</td></tr>
+            <tr><td class="green-bold">Organizing Committee Co-Chairs / 组织委员会联席主席</td><td>Robert Field, UNEP International Methane Emissions Observatory<br>
+                Kai Qin, CUMT<br>Robert Field, 联合国环境规划署国际甲烷排放观测站<br>秦凯，中国矿业大学</td></tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+
+
+    <section class="container my-5 text-center">
+        <p class="text-muted">Contact us / 联系邮箱: <a href="mailto:climetgroup@gmail.com" style="color:#003366; font-weight:600;">climetgroup@gmail.com</a></p>
+    </section>
+
+    <footer>
+        <p class="text-center fw-bold mt-4 mb-3 fs-3" id="cu">Contact us</p>
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-md-4">
+                    <div class="row p-0 mb-4">
+                        <p class="fs-4 fw-bold">Address</p>
+                        <a class="fs-4"
+                            href="https://www.google.com/maps/place/Hong+Kong+University+of+Science+and+Technology+(HKUST)/@22.3355431,114.2704449,14.44z/data=!4m6!3m5!1s0x3404046bc19c7e15:0x2bedd58f9cf841be!8m2!3d22.338017!4d114.266618!16zL20vMDFucHYz?entry=ttu">Room
+                            2605 (Lift 27-28)<br>
+                            The Hong Kong University of Science & Technology<br>
+                            Clear Water Bay, Kowloon<br>
+                            Hong Kong, China</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row p-0 mb-4">
+                        <p class="fs-4 fw-bold">General Enquiries</p>
+                        <div class="col-2 align-self-center px-0">
+                            <div><img class="img-fluid" src="photo/icon/cu1.png" alt="cuicon1">
+                            </div>
+                        </div>
+                        <div class="col-10 px-0 fs-4 align-self-center"><a
+                                href="mailto: CliMetGroup@gmail.com">CliMetGroup@gmail.com</a>
+                        </div>
+                        <div class="col-2 align-self-center px-0">
+                            <div><img class="img-fluid" src="photo/icon/cu2.png" alt="cuicon2">
+                            </div>
+                        </div>
+                        <div class="col-10 px-0 fs-4 align-self-center">(852)3469 3101
+                        </div>
+                        <div class="col-2 align-self-center px-0">
+                            <div><img class="img-fluid" src="photo/icon/cu3.png" alt="cuicon3">
+                            </div>
+                        </div>
+                        <div class="col-10 px-0 fs-4 align-self-center">(852)3469 3101
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row p-0 mb-4">
+                        <p class="fs-4 fw-bold">Media: WeChat Offical Account</p>
+                        <div><img class="img-fluid col-md-6" src="photo/wechat.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-white fs-5" style="background-color: #003366;">
+            © 2023 Copyright: CliMet Lab
+        </div>
+    </footer>
 </body>
 </html>
