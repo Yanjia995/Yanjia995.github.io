@@ -218,7 +218,6 @@
         <i class="fa-solid fa-list-ul me-2"></i>Detailed Agenda / 详细日程
       </h3>
       <div class="col-lg-10 mx-auto">
-        <!-- Agenda Pagination Navigation -->
         <ul class="nav nav-pills justify-content-center mb-4" id="agendaTab" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="agenda-day1-tab" data-bs-toggle="pill" data-bs-target="#agenda-day1" type="button" role="tab" aria-controls="agenda-day1" aria-selected="true">
@@ -236,60 +235,69 @@
             </button>
           </li>
         </ul>
-        <!-- Hidden Raw Agenda Data -->
         <pre id="raw-agenda-data" style="display: none;">
-June 7, 2026 | 4:00-6:00PM | | Registration (注册报到)
-June 8, 2026 | 9:00-9:30 | | Opening Remarks (开幕致辞)
-June 8, 2026 | 9:30-9:45 | Robert Field | UNEP's International Methane Emissions Observatory / 联合国环境规划署国际甲烷排放观测站 (TBD)
-June 8, 2026 | 9:45-10:00 | Steven Wofsy | Harvard University / 哈佛大学 (TBD)
-June 8, 2026 | 10:00-10:15 | 刘银年 (Yinnian Liu) | Roadmap of Spaceborne Hyperspectral Methane Monitoring Technology / 星载高光谱甲烷监测技术发展路线简图 [cite: 52]
-June 8, 2026 | 10:15-10:30 | Dave Risk | Beyond Point Sources: Lessons from the SIMFLEX Experimental Program on Measuring Dispersed Methane Emissions Across Sectors and Scales / 点源之外：SIMFLEX 实验项目关于跨行业、多尺度分散甲烷排放测量的经验 [cite: 52]
-June 8, 2026 | 10:30-10:50 | | Coffee Break (茶歇) [cite: 52]
-June 8, 2026 | 10:50-11:05 | Shane Murphy | University of Wyoming / 怀俄明大学 (TBD) [cite: 52]
-June 8, 2026 | 11:05-11:20 | 陈辉林 (Huilin Chen) | Observation-based quantification of Methane Emissions from Wastewater Treatment Plants in China / 基于观测数据的中国污水处理厂甲烷排放核算 [cite: 52]
-June 8, 2026 | 11:20-11:35 | Itziar Irakulis-Loitxate | UNEP’s Methane Alert and Response System: from satellite observations to methane mitigation / 联合国环境规划署甲烷预警与响应系统：从卫星观测到甲烷减排 [cite: 52]
-June 8, 2026 | 11:35-11:50 | 解东来 (Donglai Xie) | Measurement of Methane Emissions from Household Gas Stoves / 家用燃气灶甲烷排放量化 [cite: 52]
-June 8, 2026 | 11:50-12:05 | Ira Leifer | In situ verification of satellite-detected, enhanced geogas emissions in the Death Valley region after the 2019 Ridgecrest Earthquake / 2019年Ridgecrest地震后死亡谷地区地气排放增强的卫星探测与实地验证 [cite: 52]
-June 8, 2026 | 12:05-14:00 | | Lunch (午餐) [cite: 52]
-June 8, 2026 | 14:00-14:15 | 郑秀钟 (Sujong Jeong) | Integrated Methane Monitoring and Modeling in Korea: Bridging Ground, Mobile, and Satellite Observations / 韩国综合甲烷监测与建模：地面、移动与卫星观测的融合 [cite: 56]
-June 8, 2026 | 14:15-14:30 | 鲁玺 (Xi Lu) | From Detection to Verification: Building Measurement-Based Methane MRV through Integrated Satellite and Mobile Monitoring / 从排放发现到核证闭环：基于卫星与走航融合观测的甲烷排放MRV能力构建 [cite: 56]
-June 8, 2026 | 14:30-14:45 | Elfie Roy | Bridging the measurement gap: accurate quantification as a prerequisite for credible CMM mitigation / 填补测量空白：精准量化是实现可信煤矿甲烷减排的先决条件 [cite: 56]
-June 8, 2026 | 14:45-15:00 | 费璕瑺 (Xunchang Fei) | Methane Emissions from Landfills Differentially Underestimated Worldwide / 全球垃圾填埋场甲烷排放的差异性低估 [cite: 56]
-June 8, 2026 | 15:00-15:15 | 郑博 (Bo Zheng) | Trends, drivers, and targeted mitigation opportunities of China's anthropogenic methane emissions / 中国人为甲烷排放的趋势、驱动因素及精准减排机遇 [cite: 56]
-June 8, 2026 | 15:15-15:30 | 绪伟凡 (Weifan Xu) | HKUST / 香港科技大学 (TBD) [cite: 56]
-June 8, 2026 | 15:30-15:50 | | Coffee Break (茶歇) [cite: 56]
-June 8, 2026 | 15:50-16:00 | (Lightning) 徐宸 / 王郭琳 | 高分辨率TROPOMI反演东南亚甲烷排放 / 中国甲烷减排治理政策视角 [cite: 56]
-June 8, 2026 | 16:00-16:20 | (Lightning) 刘艳秋 / 张子龙 / 邱嘉馨 / 汤讯 | 山西主要煤盆地至京津冀甲烷输送效应 / SIGMA-DB中国煤矿卫星影像数据库 / 全球野火甲烷排放热点 [cite: 56]
-June 8, 2026 | 16:20-16:40 | (Lightning) 赵鹏飞 / 洪溥 / 肖千 / 李一凡 | 中国区域尺度二十年甲烷收支 / 中国页岩气发展新范式 / TROPOMI XCH₄数据时空重建 [cite: 56]
-June 8, 2026 | 16:40-17:05 | (Lightning) 钟慧茹 / 徐佳玲 / 王家辉 / 秦静然 / 陈圆圆 | 新增地面观测对优化中国甲烷排放增益 / 大型煤矿甲烷排放估算 [cite: 56]
-June 8, 2026 | 17:05-18:00 | | Poster Session (海报展示) [cite: 56]
-June 8, 2026 | 18:00-20:00 | | Dinner (晚宴) [cite: 56]
-June 9, 2026 | 9:00-9:15 | Felicia A. Ruiz | Coal Mine Methane and Strategic Partnerships / 煤矿甲烷与战略合作 (TBD) [cite: 60]
-June 9, 2026 | 9:15-9:30 | 翟成兴 (Chengxing Zhai) | HKUST / 香港科技大学 (TBD) [cite: 60]
-June 9, 2026 | 9:30-9:45 | 杰森科恩 (Jason Cohen) | Beyond linearity: Quantifying the substantial effects of long range transport and absorbing aerosols on satellite based methane emission estimation and attribution / 非线性：量化长距离输送与吸收性气溶胶对基于卫星的甲烷排放估算及归因的显著影响 [cite: 60]
-June 9, 2026 | 9:45-10:00 | 秦凯 (Kai Qin) | Integrated Estimation of Coal Mine Methane Emissions in China Using Satellite, Surface, and Underground Observations / 基于天地井一体化观测估算中国煤矿甲烷排放 [cite: 60]
-June 9, 2026 | 10:00-10:15 | Ajay K. Singh | Evaluating fugitive methane emissions from abandoned underground coal mines in India / 评估印度废弃地下煤矿的逃逸甲烷排放 [cite: 60]
-June 9, 2026 | 10:15-10:45 | | Coffee Break (茶歇) [cite: 60]
-June 9, 2026 | 10:45-11:00 | Udayan Singh | Could fugitive methane emissions from coal exploration be a blind spot for greenhouse gas inventories? / 煤炭勘探过程中的逃逸甲烷排放是否会成为温室气体清单的盲区？ [cite: 60]
-June 9, 2026 | 11:00-11:15 | 韩舸 (Ge Han) | Constraining Annual Coal Mine Methane Emissions with Multi-Temporal Hyperspectral Satellite Observations / 基于多时相高光谱卫星观测的年度煤矿甲烷排放约束 [cite: 60]
-June 9, 2026 | 11:15-11:30 | 涂庆毅 (Qingyi Tu) | Current Status of Methane Emission Reduction and Utilization Technologies in Coal Mines and Abandoned Coal Mines / 煤矿及废弃煤矿甲烷减排与利用技术现状 [cite: 60]
-June 9, 2026 | 11:30-11:45 | 李湘 (Xiang Li) | Facilitating the integration of satellite-based methane monitoring data into emissions inventory preparation and terrestrial supervision / 推动甲烷卫星监测数据融入排放清单准备及地面监管工作 [cite: 60]
-June 9, 2026 | 11:45-12:00 | 崔语嫣 (Yuyan Cui) | Regional High-Resolution Methane Emissions Estimated Using TROPOMI and WRF-GHG/Chem-DART and Comparisons Across Multiple Systems / 基于TROPOMI和WRF-GHG/Chem-DART的区域高分辨率甲烷排放估算及多系统对比 [cite: 60]
-June 9, 2026 | 12:00-12:15 | 卢骁 (Xiao Lu) | Revised global methane budget inferred from inverse analysis of integrated methane and isotope observations / 基于甲烷与同位素观测反演的全球甲烷收支修正 [cite: 60]
-June 9, 2026 | 12:15-14:00 | | Lunch (午餐) [cite: 60]
-June 9, 2026 | 14:00-14:15 | 张秀英 (Xiuying Zhang) | Detection on global onshore gas flaring from Sentinel-2 MSI images / 基于Sentinel-2 MSI影像识别全球陆上天然气燃除 [cite: 64]
-June 9, 2026 | 14:15-14:30 | 陈子冲 (Zichong Chen) | Tropical Wetland Methane Emission Inventory (WMEI) for 2004-2023 inferred from Landsat-based inundated vegetation data / 基于Landsat卫星淹没植被数据反演的2004-2023年热带湿地甲烷排放清单 [cite: 64]
-June 9, 2026 | 14:30-14:45 | 郭美瑜 (Meiyu Guo) | Evaluating Global Methane Mitigation Policies: A Multi-Source Structural Break Analysis / 全球甲烷减排政策评估：多源结构断点分析 [cite: 64]
-June 9, 2026 | 14:45-15:00 | 裴志鹏 (Zhipeng Pei) | Enhancing CH4 Quantification Accuracy: A Scene-based Spectral Calibration Approach for Imaging Spectrometers / 提高甲烷量化精度：基于场景的成像光谱仪光谱定标法 [cite: 64]
-June 9, 2026 | 15:00-15:15 | 冯树状 (Shuzhuang Feng) | Estimating anthropogenic methane emissions in China using a high-resolution regional methane assimilation system / 基于高分辨率区域甲烷同化系统估算中国人为甲烷排放 [cite: 64]
-June 9, 2026 | 15:15-15:45 | | Coffee Break (茶歇) [cite: 64]
-June 9, 2026 | 15:45-16:00 | 张晓楠 (Xiaonan Zhang) | Environmental Defense Fund / 美国环保协会 [cite: 64]
-June 9, 2026 | 16:00-16:15 | 朱思虹 (Sihong Zhu) | Significant response of methane in the upper troposphere to subseasonal variability in the Asian monsoon anticyclone / 对流层上层甲烷对亚洲季风反气旋次季节变率的显著响应 [cite: 64]
-June 9, 2026 | 16:15-16:30 | 臧昆鹏 (Kunpeng Zang) | A self-developed headspace Gas Chromatograph method for measuring dissolved methane / 一种自主研发的用于测定溶解甲烷的顶空气相色谱法 [cite: 64]
-June 9, 2026 | 16:30-16:45 | 张志荣 (Zhirong Zhang) | Laser technology for methane leakage cloud imaging and quantification of leakage rate / 用于甲烷泄漏云团成像与泄漏率定量的激光技术 [cite: 64]
-June 9, 2026 | 16:45-17:00 | 钟慧茹 (Huiru Zhong) | Fossil fuel methane emission trends (2019–2024) inferred from high-resolution satellite observations / 基于高分辨率卫星数据的化石燃料甲烷排放趋势（2019–2024年） [cite: 64]
-June 9, 2026 | 17:00-17:15 | Matthieu Dogniaux | Space Research Organisation Netherlands (TBD) [cite: 64]
-June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks (颁奖及闭幕式) [cite: 64]
+June 7, 2026 | 4:00-6:00PM | | | Registration//注册报到
+June 8, 2026 | 9:00-9:30 | | | Opening Remarks//开幕式
+June 8, 2026 | 9:30-9:45 | Robert Field//UNEP's International Methane Emissions Observatory//联合国环境规划署国际甲烷排放观测站 | TBD
+June 8, 2026 | 9:45-10:00 | Steven Wofsy//Harvard University//哈佛大学 | TBD
+June 8, 2026 | 10:00-10:15 | Yinnian Liu//Shanghai Institute of Technical Physics, Chinese Academy of Sciences//刘银年//中国科学院上海技术物理研究所 | Roadmap of Spaceborne Hyperspectral Methane Monitoring Technology//星载高光谱甲烷监测技术发展路线简图
+June 8, 2026 | 10:15-10:30 | Dave Risk//St. Francis Xavier University//圣弗朗西斯泽维尔大学 | Beyond Point Sources: Lessons from the SIMFLEX Experimental Program on Measuring Dispersed Methane Emissions Across Sectors and Scales//点源之外：SIMFLEX 实验项目关于跨行业、多尺度分散甲烷排放测量的经验
+June 8, 2026 | 10:30-10:50 | | | Coffee Break//茶歇
+June 8, 2026 | 10:50-11:05 | Shane Murphy//University of Wyoming//怀俄明大学 | TBD
+June 8, 2026 | 11:05-11:20 | Huilin Chen//Nanjing University//陈辉林//南京大学 | Observation-based quantification of Methane Emissions from Wastewater Treatment Plants in China//基于观测数据的中国污水处理厂甲烷排放核算
+June 8, 2026 | 11:20-11:35 | Itziar Irakulis-Loitxate//UNEP's Methane Alert and Response System//联合国环境规划署甲烷预警与响应系统 | UNEP's Methane Alert and Response System: from satellite observations to methane mitigation//联合国环境规划署甲烷预警与响应系统：从卫星观测到甲烷减排
+June 8, 2026 | 11:35-11:50 | Donglai Xie//Environmental Defense Fund//解东来//美国环保协会 | Measurement of Methane Emissions from Household Gas Stoves//家用燃气灶甲烷排放量化
+June 8, 2026 | 11:50-12:05 | Ira Leifer//Bubbleology Research International (BRI)//BRI公司 | In situ verification of satellite-detected, enhanced geogas emissions in the Death Valley region after the 2019 Ridgecrest Earthquake//2019年Ridgecrest地震后死亡谷地区地气排放增强的卫星探测与实地验证
+June 8, 2026 | 12:05-14:00 | | | Lunch//午餐
+June 8, 2026 | 14:00-14:15 | Sujong Jeong//Seoul National University//郑秀钟//首尔大学 | Integrated Methane Monitoring and Modeling in Korea: Bridging Ground, Mobile, and Satellite Observations//韩国综合甲烷监测与建模：地面、移动与卫星观测的融合
+June 8, 2026 | 14:15-14:30 | Xi Lu//Tsinghua University//鲁玺//清华大学 | From Detection to Verification: Building Measurement-Based Methane MRV through Integrated Satellite and Mobile Monitoring//从排放发现到核证闭环：基于卫星与走航融合观测的甲烷排放MRV能力构建
+June 8, 2026 | 14:30-14:45 | Elfie Roy//Carbon Limits//碳减排咨询公司 | Bridging the measurement gap: accurate quantification as a prerequisite for credible CMM mitigation//填补测量空白：精准量化是实现可信煤矿甲烷减排的先决条件
+June 8, 2026 | 14:45-15:00 | Xunchang Fei//Nanyang Technological University//费璕瑺//南洋理工大学 | Methane Emissions from Landfills Differentially Underestimated Worldwide//全球垃圾填埋场甲烷排放的差异性低估
+June 8, 2026 | 15:00-15:15 | Bo Zheng//Tsinghua University//郑博//清华大学 | Trends, drivers, and targeted mitigation opportunities of China's anthropogenic methane emissions//中国人为甲烷排放的趋势、驱动因素及精准减排机遇
+June 8, 2026 | 15:15-15:30 | Weifan Xu//The Hong Kong University of Science and Technology //绪伟凡//香港科技大学 | TBD
+June 8, 2026 | 15:30-15:50 | | | Coffee Break//茶歇
+June 8, 2026 | 15:50-15:55 (lightning talk) | Chen Xu//The Hong Kong University of Science and Technology(Guangzhou)//徐宸//香港科技大学（广州） | Dry-Wet Season Contrast of Methane Emissions in Southeast Asia Revealed by High-Resolution TROPOMI Inversion//高分辨率TROPOMI反演揭示东南亚甲烷排放的干湿季节差异
+June 8, 2026 | 15:55-16:00 (lightning talk) | Guolin Wang//Hong Kong Baptist University//王郭琳//香港浸会大学 | Methane Mitigation Governance in China: A Policy Perspective//政策视角下的中国甲烷减排治理
+June 8, 2026 | 16:00-16:05 (lightning talk) | Yanqiu Liu//China University of Mining and Technology//刘艳秋//中国矿业大学 | Policy-directed targeting of methane transport effect from Shanxi major coal basins toward the Beijing-Tianjin-Hebei (BTH) region//政策导向下的山西主要煤盆地至京津冀地区的甲烷输送效应
+June 8, 2026 | 16:05-16:10 (lightning talk) | Yuntao Peng//University of Science and Technology of China//彭云涛//中国科学技术大学 | TDLAS-based distributed monitoring method for multi-component gas leakage in crude oil storage tanks//基于可调谐二极管激光吸收光谱技术的原油储罐多组分气体泄漏分布式监测方法
+June 8, 2026 | 16:10-16:15 (lightning talk) | Jiaxin Qiu//Tsinghua University//邱嘉馨//清华大学 | Global wildfire methane emission hotspots inferred from satellite carbon monoxide observations//基于卫星一氧化碳观测反演的全球野火甲烷排放热点区域
+June 8, 2026 | 16:15-16:20 (lightning talk) | Xun Tang//China University of Mining and Technology //汤讯//中国矿业大学 | TBD
+June 8, 2026 | 16:20-16:25 (lightning talk) | Pengfei Zhao//Institute of Tibetan Plateau Research, Chinese Academy of Sciences//赵鹏飞//中国科学院青藏高原研究所 | Two decades of methane budgets at the sub-national scale in China//区域尺度下的中国二十年甲烷收支分析
+June 8, 2026 | 16:25-16:30 (lightning talk) | Pu Hong//Hong Kong Baptist University//洪溥//香港浸会大学 | Methane Challenges and Carbon Sequestration Opportunities: A New Paradigm for Shale Gas in China//应对甲烷挑战、把握碳封存机遇：中国页岩气发展新范式
+June 8, 2026 | 16:30-16:35 (lightning talk) | Qian Xiao//China University of Petroleum (East China)//肖千//中国石油大学（华东） | Spatiotemporal Reconstruction of TROPOMI XCH₄ Data for Detecting Methane Emission Anomalies and Estimating Emission Rate//TROPOMI XCH₄ 数据的时空重建在甲烷排放异常检测与排放率估算中的应用
+June 8, 2026 | 16:35-16:40 (lightning talk) | Yifan Li//Tsinghua University//李一凡//清华大学 | Satellite-based monitoring of methane emission dynamics across global to regional scales//基于卫星观测的全球-区域尺度甲烷排放动态监测
+June 8, 2026 | 16:40-16:45 (lightning talk) | Huiru Zhong//Peking University//钟慧茹//北京大学 | The added value of new ground-based observations in improving China’s methane emission quantification//新增地面观测对优化中国甲烷排放量化评估的增益作用
+June 8, 2026 | 16:45-16:50 (lightning talk) | Jialing Xu//China University of Mining and Technology//徐佳玲//中国矿业大学 | TBD
+June 8, 2026 | 16:50-16:55 (lightning talk) | Xiachun Wang//University of Science and Technology of China//王夏春//中国科学技术大学 | Dynamic Imaging and Inverse Quantification Method of Methane Gas Cloud with Laser Scanning Technology//激光扫描式甲烷气云动态成像及定量反演方法
+June 8, 2026 | 16:55-17:00 (lightning talk) | Yunayuan Chen//Anhui University of Science and Technology//陈圆圆//安徽理工大学 | Quantifying methane emissions from large coal mine using Sentinel-5 Precursor satellite data and Gaussian plume model//基于Sentinel-5P和混合高斯羽流模型的大型煤矿甲烷排放估算
+June 8, 2026 | 17:00-18:00 | | | Poster Session//海报展示
+June 8, 2026 | 18:00-20:00 | | | Dinner//晚餐
+June 9, 2026 | 9:00-9:15 | Felicia A. Ruiz//Coal Mine Methane and Strategic Partnerships//煤矿甲烷与战略合作 | TBD
+June 9, 2026 | 9:15-9:30 | Chengxing Zhai//The Hong Kong University of Science and Technology //翟成兴//香港科技大学 | TBD
+June 9, 2026 | 9:30-9:45 | Jason Cohen // China University of Mining and Technology //杰森科恩//中国矿业大学 | Beyond linearity: Quantifying the substantial effects of long range transport and absorbing aerosols on satellite based methane emission estimation and attribution//非线性：量化长距离输送与吸收性气溶胶对基于卫星的甲烷排放估算及归因的显著影响
+June 9, 2026 | 9:45-10:00 | Kai Qin//China University of Mining and Technology//秦凯//中国矿业大学 | Integrated Estimation of Coal Mine Methane Emissions in China Using Satellite, Surface, and Underground Observations//基于天地井一体化观测估算中国煤矿甲烷排放
+June 9, 2026 | 10:00-10:15 | Ajay K. Singh//Indian Institute of Technology Bombay//印度理工学院孟买分校 | Evaluating fugitive methane emissions from abandoned underground coal mines in India//评估印度废弃地下煤矿的逃逸甲烷排放
+June 9, 2026 | 10:15-10:45 | | | Coffee Break//茶歇
+June 9, 2026 | 10:45-11:00 | Udayan Singh//Northwestern University//西北大学 | Could fugitive methane emissions from coal exploration be a blind spot for greenhouse gas inventories?//煤炭勘探过程中的逃逸甲烷排放是否会成为温室气体清单的盲区？
+June 9, 2026 | 11:00-11:15 | Ge Han//Wuhan University//韩舸//武汉大学 | Constraining Annual Coal Mine Methane Emissions with Multi-Temporal Hyperspectral Satellite Observations//基于多时相高光谱卫星观测的年度煤矿甲烷排放约束
+June 9, 2026 | 11:15-11:30 | Qingyi Tu//Anhui University of Science and Technology//涂庆毅//安徽理工大学 | Current Status of Methane Emission Reduction and Utilization Technologies in Coal Mines and Abandoned Coal Mines//煤矿及废弃煤矿甲烷减排与利用技术现状
+June 9, 2026 | 11:30-11:45 | Xiang Li//Environmental Defense Fund//李湘//美国环保协会 | Facilitating the integration of satellite-based methane monitoring data into emissions inventory preparation and terrestrial supervision//推动甲烷卫星监测数据融入排放清单准备及地面监管工作
+June 9, 2026 | 11:45-12:00 | Yuyan Cui //Environmental Defense Fund //崔语嫣//美国环保协会 | Regional High-Resolution Methane Emissions Estimated Using TROPOMI and WRF-GHG/Chem-DART and Comparisons Across Multiple Systems//基于TROPOMI和WRF-GHG/Chem-DART的区域高分辨率甲烷排放估算及多系统对比
+June 9, 2026 | 12:00-12:15 | Xiao Lu//Sun Yat-sen University//卢骁//中山大学 | Revised global methane budget inferred from inverse analysis of integrated methane and isotope observations//基于甲烷与同位素观测反演的全球甲烷收支修正
+June 9, 2026 | 12:15-14:00 | | | Lunch//午餐
+June 9, 2026 | 14:00-14:15 | Xiuying Zhang//Nanjing University//张秀英//南京大学 | Detection on global onshore gas flaring from Sentinel-2 MSI images//基于Sentinel-2 MSI影像识别全球陆上天然气燃除
+June 9, 2026 | 14:15-14:30 | Zichong Chen//The Hong Kong University of Science and Technology (Guangzhou)//陈子冲//香港科技大学（广州） | Tropical Wetland Methane Emission Inventory (WMEI) for 2004-2023 inferred from Landsat-based inundated vegetation data//基于Landsat卫星淹没植被数据反演的2004-2023年热带湿地甲烷排放清单
+June 9, 2026 | 14:30-14:45 | Meiyu Guo//Hong Kong Baptist University//郭美瑜//香港浸会大学 | Evaluating Global Methane Mitigation Policies: A Multi-Source Structural Break Analysis//全球甲烷减排政策评估：多源结构断点分析
+June 9, 2026 | 14:45-15:00 | Zhipeng Pei//Wuhan University//裴志鹏//武汉大学 | Enhancing CH4 Quantification Accuracy: A Scene-based Spectral Calibration Approach for Imaging Spectrometers//提高甲烷量化精度：基于场景的成像光谱仪光谱定标法
+June 9, 2026 | 15:00-15:15 | Shuzhuang Feng//Nanjing University//冯树状//南京大学 | Estimating anthropogenic methane emissions in China using a high-resolution regional methane assimilation system//基于高分辨率区域甲烷同化系统估算中国人为甲烷排放
+June 9, 2026 | 15:15-15:45 | | | Coffee Break//茶歇
+June 9, 2026 | 15:45-16:00 | Xiaonan Zhang//Environmental Defense Fund//张晓楠//美国环保协会 | TBD
+June 9, 2026 | 16:00-16:15 | Sihong Zhu//Institute of Atmospheric Physics, Chinese Academy of Sciences//朱思虹//中国科学院大气物理研究所 | Significant response of methane in the upper troposphere to subseasonal variability in the Asian monsoon anticyclone//对流层上层甲烷对亚洲季风反气旋次季节变率的显著响应
+June 9, 2026 | 16:15-16:30 | Kunpeng Zang//Zhejiang University of Technology//臧昆鹏//浙江工业大学 | A self-developed headspace Gas Chromatograph method for measuring dissolved methane//一种自主研发的用于测定溶解甲烷的顶空气相色谱法
+June 9, 2026 | 16:30-16:45 | Zhirong Zhang//Hefei Institutes of Physical Science, Chinese Academy of Sciences, the Mainland of China//张志荣//中国科学院合肥物质科学研究院 | Laser technology for methane leakage cloud imaging and quantification of leakage rate//用于甲烷泄漏云团成像与泄漏率定量的激光技术
+June 9, 2026 | 16:45-17:00 | Huiru Zhong//Peking University//钟慧茹//北京大学 | Fossil fuel methane emission trends (2019–2024) inferred from high-resolution satellite observations//基于高分辨率卫星数据的化石燃料甲烷排放趋势（2019–2024年）
+June 9, 2026 | 17:00-17:15 | Matthieu Dogniaux//Space Research Organisation Netherlands//荷兰空间研究组织 |  TBD
+June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁奖及闭幕式
         </pre>
         <div class="tab-content" id="agendaTabContent">
           <div class="tab-pane fade show active" id="agenda-day1" role="tabpanel" aria-labelledby="agenda-day1-tab">
@@ -304,62 +312,48 @@ June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks (颁奖
         </div>
       </div>
     </section>
+
     <script>
-      // Utility function for smart parsing: split to date | time | speaker | institute | title
       function parseAgendaLine(line) {
         let parts = line.split('|').map(s => s.trim());
-        if (parts.length < 5) {
-          // try to infer missing fields
-          // for Lunch, Dinner, Poster etc. often speaker and institute are empty
-          if (parts.length === 4) {
-            return {
-              date: parts[0],
-              time: parts[1],
-              speaker: parts[2] || '',
-              institute: '',
-              title: parts[3] || ''
-            };
-          } else if (parts.length === 3) {
-            return {
-              date: parts[0],
-              time: parts[1],
-              speaker: '',
-              institute: '',
-              title: parts[2] || ''
-            };
-          } else if (parts.length === 2) {
-            return {
-              date: parts[0],
-              time: parts[1],
-              speaker: '',
-              institute: '',
-              title: ''
-            };
-          } else {
-            return {
-              date: parts[0] || '',
-              time: '',
-              speaker: '',
-              institute: '',
-              title: ''
-            };
-          }
+        
+        function clean(text) {
+          if (!text) return '';
+          return text.replace(/\/\/+/g, '<br>');
         }
-        // Standard agenda line: Date | Time | Speaker | Institute | Title
-        return {
-          date: parts[0],
-          time: parts[1],
-          speaker: parts[2],
-          institute: parts[3],
-          title: (parts.slice(4).join('|') || '')
-        };
+
+        if (parts.length === 4) {
+          return {
+            date: parts[0],
+            time: parts[1],
+            speaker: clean(parts[2]),
+            institute: '',
+            title: clean(parts[3])
+          };
+        } 
+        else if (parts.length === 3) {
+          return {
+            date: parts[0],
+            time: parts[1],
+            speaker: '',
+            institute: '',
+            title: clean(parts[2])
+          };
+        } 
+        else if (parts.length >= 5) {
+          return {
+            date: parts[0],
+            time: parts[1],
+            speaker: clean(parts[2]),
+            institute: clean(parts[3]),
+            title: clean(parts.slice(4).join('|'))
+          };
+        }
+        return { date: parts[0] || '', time: '', speaker: '', institute: '', title: '' };
       }
 
-      // Smart day splitting, same as before
       function splitAgendaByDay(items) {
-        const day1 = [];
-        const day2 = [];
-        const day3 = [];
+        const day1 = []; const day2 = []; const day3 = [];
         for (const item of items) {
           if (item.date.includes('June 7, 2026')) day1.push(item);
           else if (item.date.includes('June 8, 2026')) day2.push(item);
@@ -368,64 +362,64 @@ June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks (颁奖
         return {day1, day2, day3};
       }
 
-      // Determine if an item is lunch/dinner/coffee/poster/award/break/registration by keywords
       function isSessionMerged(item) {
         if (!item) return false;
         const lowerTitle = (item.title || '').toLowerCase();
-        const keywords = [
-          'lunch',
-          'dinner',
-          'coffee',
-          'break',
-          'poster',
-          'award',
-          'registration',
-          'remarks',
-          'opening',
-          'closing',
-          'session',
-        ];
-        // Any keyword in title means this row should use merged display
+        const keywords = ['lunch', 'dinner', 'coffee', 'break', 'poster', 'award', 'registration', 'remarks', 'opening', 'closing', 'session'];
         return keywords.some(kw => lowerTitle.includes(kw));
       }
 
-      /**
-       * Renders agenda table in required smart-merged layout:
-       * - 1st column: Time (no date)
-       * - 2nd: Speaker (newline) Institute (if exists)
-       * - 3rd: Title
-       * For merged rows, 2nd and 3rd are merged as colspan=2
-       */
+      function isCenteredEvent(item) {
+        if (!item) return false;
+        const lowerTitle = (item.title || '').toLowerCase();
+        const centeredKeywords = ['lunch', 'dinner', 'coffee break', 'poster session', 'registration', 'best presentation award', 'closing remarks', 'opening remarks'];
+        return centeredKeywords.some(kw => lowerTitle.includes(kw));
+      }
+
+      // 5. 核心渲染引擎（已剔除全部多余加粗逻辑）
       function renderDetailedAgendaTable(items) {
         if (!items.length) return '<div class="text-center text-muted my-5">No agenda available for this day.</div>';
-        let html = `<div class="table-responsive"><table class="table custom-table agenda-table">
+        
+        // 💡 显式给 <th> 加上 font-weight: normal; 样式，防止主题默认加粗标题
+        let html = `<div class="table-responsive"><table class="table custom-table agenda-table" style="font-weight: normal;">
           <thead>
             <tr>
-              <th style="width:13%;">Time / 时间</th>
-              <th style="width:22%;">Speaker / 主讲人<br><span style="font-weight:normal;font-size:88%">(Institution / 单位)</span></th>
-              <th>Title / 报告题目或环节</th>
+              <th style="width:16%; font-weight: normal;">Time</th>
+              <th style="width:22%; font-weight: normal;">Presenter</th>
+              <th style="font-weight: normal;">Topic</th>
             </tr>
           </thead>
           <tbody>
         `;
+        
         for (const item of items) {
-          const speakerCell = item.speaker
-            ? `<strong>${item.speaker}</strong>${item.institute ? `<br><span class="text-muted">${item.institute}</span>` : ''}`
-            : (item.institute ? `<span class="text-muted">${item.institute}</span>` : '');
+          // 💡 移除了原本包裹在 item.speaker 外部的 <strong> 标签
+          const speakerCell = item.speaker ? `${item.speaker}` : '';
+          const instituteCell = item.institute ? `<br><small class="text-muted">${item.institute}</small>` : '';
+          const presenterContent = speakerCell + instituteCell;
 
-          // For Lunch/Dinner/Break etc, merge two columns
           if (isSessionMerged(item)) {
-            html += `
-              <tr>
-                <td class="secondary-text">${item.time || ''}</td>
-                <td colspan="2" style="text-align: left;"><span style="font-weight:600;">${item.title || speakerCell}</span></td>
-              </tr>
-            `;
+            let displayContent = item.title || speakerCell;
+            if (isCenteredEvent(item)) {
+              html += `
+                <tr class="highlight-row" style="background-color: #f8f9fa;">
+                  <td class="secondary-text">${item.time || ''}</td>
+                  <td colspan="2" style="text-align: center;"><span>${displayContent}</span></td>
+                </tr>
+              `;
+            } else {
+              html += `
+                <tr class="highlight-row" style="background-color: #f8f9fa;">
+                  <td class="secondary-text">${item.time || ''}</td>
+                  <td colspan="2" style="text-align: left;"><span>${displayContent}</span></td>
+                </tr>
+              `;
+            }
           } else {
             html += `
               <tr>
                 <td class="secondary-text">${item.time || ''}</td>
-                <td>${speakerCell}</td>
+                <td>${presenterContent}</td>
                 <td style="text-align:left;">${item.title || ''}</td>
               </tr>
             `;
@@ -436,7 +430,6 @@ June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks (颁奖
       }
 
       document.addEventListener('DOMContentLoaded', function () {
-        // Parse all lines to 5-part objects
         const raw = document.getElementById('raw-agenda-data').textContent.trim();
         const lines = raw.split('\n').filter(l => l.trim());
         const items = lines.map(parseAgendaLine);
