@@ -18,12 +18,17 @@
             border: 1px solid #A5D6A7 !important; 
             text-align: center !important;
             margin-bottom: 2.5rem;
+            /* 💡 全局允许折行，避免任何长英文单词撑出横向滚动条 */
+            table-layout: auto;
+            word-break: break-word !important; 
         }
 
         .custom-table th, .custom-table td {
             border: 1px solid #A5D6A7 !important; 
             padding: 12px 15px !important;
             vertical-align: middle !important;
+            /* 💡 强制允许所有单元格文字自由换行 */
+            white-space: normal !important; 
         }
 
         /* Agenda 与 注册表头颜色：浅蓝绿色 */
@@ -76,18 +81,71 @@
         .date-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #A5D6A7; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .date-item { padding: 12px 0; border-bottom: 1px dashed #e0e0e0; }
         .date-item:last-child { border-bottom: none; }
-        /* 详细日程样式 */
+        
+        /* 详细日程样式 (你原有的专属浅绿色表头) */
         .detailed-schedule-table thead tr { background-color: #F0F4C3 !important; }
         .detailed-schedule-table thead th { color: #33691E !important; font-weight: 700 !important; }
         .session-title { font-weight: 700; color: #003366; }
         .speaker-info { color: #388E3C; font-size: 0.97rem; }
         .detail-time { color: #8D6E63; font-size: 0.95rem; }
 
+
+        /* ========================================================= */
+        /* 🎯 详细日程表 (Detailed Schedule) 专属精准排版控制 */
+        /* ========================================================= */
+        
+        /* 强制详细日程表固定列宽占比 */
+        .detailed-schedule-table {
+            table-layout: fixed !important; 
+        }
+
+        /* 强行不加粗正文内容，并让正文偏左对齐更利于长文本阅读 */
+        .detailed-schedule-table tbody td {
+            font-weight: normal !important;
+            text-align: left !important;
+        }
+
+        /* 第一列 Time：占比 15%，且居中 */
+        .detailed-schedule-table th:nth-child(1),
+        .detailed-schedule-table td:nth-child(1) {
+            width: 15% !important;
+            text-align: center !important;
+        }
+
+        /* 第二列 Presenter：占比 25% */
+        .detailed-schedule-table th:nth-child(2),
+        .detailed-schedule-table td:nth-child(2) {
+            width: 25% !important;
+        }
+
+        /* 第三列 Topic：占比 60%，拿大头 */
+        .detailed-schedule-table th:nth-child(3),
+        .detailed-schedule-table td:nth-child(3) {
+            width: 60% !important;
+        }
+
+        /* 捕获 JS 里专门设置的居中合并事件（如午餐、茶歇） */
+        .detailed-schedule-table td[style*="text-align: center"] {
+            text-align: center !important;
+        }
+
+        /* 抹除详细日程表容器的滚动条设置，使其彻底贴合屏幕 */
+        #agendaTabContent .table-responsive {
+            overflow-x: hidden !important; 
+        }
+
+        /* 移动端细微适配 */
         @media (max-width: 575.98px) {
             .background-card { padding: 18px; }
             .table-responsive { font-size: 0.97rem; }
+            .detailed-schedule-table th, 
+            .detailed-schedule-table td {
+                padding: 6px 4px !important; 
+                font-size: 0.85rem !important;
+            }
         }
     </style>
+    
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
@@ -151,7 +209,7 @@
                         <i class="fa-solid fa-house-laptop me-2" style="color:#003366;"></i>Mode: In-person & Online / 主要形式：线下高质量讲座 & 线上直播
                     </p>
                     <p style="margin-bottom: 10px;">
-                        <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>The Hong Kong University of Science and Technology / 香港科技大学
+                        <i class="fa-solid fa-location-dot me-2" style="color:#003366;"></i>LT-B, Academic Building, The Hong Kong University of Science and Technology / LT-B, 学术大楼, 香港科技大学
                     </p>
                     <p style="margin-bottom: 10px;">
                         <i class="fa-solid fa-video me-2" style="color:#003366;"></i>Zoom ID: 95914100125 (Password / 密码: 587070)
@@ -197,7 +255,7 @@
         <div class="table-responsive col-lg-10 mx-auto">
         <table class="table custom-table agenda-table">
             <thead>
-            <tr><th style="width:25%;">Date / 日期</th><th style="width:25%;">Time (UTC+8, Hong Kong Time) / 时间 (东八区，香港时间)</th><th>Agenda / 日程安排</th></tr>
+            <tr><th style="width:25%;">Date / 日期</th><th style="width:25%;">Time / 时间</th><th>Agenda / 日程安排</th></tr>
             </thead>
             <tbody>
             <tr><td class="green-bold">June 7, 2026</td><td class="secondary-text">4:00-6:00 PM</td><td>Registration<br>注册</td></tr>
@@ -207,11 +265,13 @@
             <tr><td class="secondary-text">6:00-8:00 PM</td><td>Dinner<br>晚餐</td></tr>
             <tr><td rowspan="3" class="green-bold">June 9, 2026</td><td class="secondary-text">9:00-12:00 AM</td><td>Oral Session<br>主题报告</td></tr>
             <tr><td class="secondary-text">12:00-2:00 PM</td><td>Lunch<br>午餐</td></tr>
-            <tr><td class="secondary-text">2:00-5:00 PM</td><td>Oral Session & Closing Ceremony<br>主题报告 & 闭幕式</td></tr>
+            <tr><td class="secondary-text">2:00-5:45 PM</td><td>Oral Session & Closing Ceremony<br>主题报告 & 闭幕式</td></tr>
             </tbody>
         </table>
         </div>
     </section>
+
+
 
     <section class="container my-5">
       <h3 class="text-center fw-bold mb-4" style="color:#003366;">
@@ -271,7 +331,7 @@ June 8, 2026 | 16:45-16:50 (lightning talk) | Jialing Xu//China University of Mi
 June 8, 2026 | 16:50-16:55 (lightning talk) | Xiachun Wang//University of Science and Technology of China//王夏春//中国科学技术大学 | Dynamic Imaging and Inverse Quantification Method of Methane Gas Cloud with Laser Scanning Technology//激光扫描式甲烷气云动态成像及定量反演方法
 June 8, 2026 | 16:55-17:00 (lightning talk) | Yunayuan Chen//Anhui University of Science and Technology//陈圆圆//安徽理工大学 | Quantifying methane emissions from large coal mine using Sentinel-5 Precursor satellite data and Gaussian plume model//基于Sentinel-5P和混合高斯羽流模型的大型煤矿甲烷排放估算
 June 8, 2026 | 17:00-18:00 | | | Poster Session//海报展示
-June 8, 2026 | 18:00-20:00 | | | Dinner//晚餐
+June 8, 2026 | 18:00-20:00 | | | Dinner @ China Garden//晚餐 @ 南北小厨
 June 9, 2026 | 9:00-9:15 | Felicia A. Ruiz//Coal Mine Methane and Strategic Partnerships//煤矿甲烷与战略合作 | TBD
 June 9, 2026 | 9:15-9:30 | Chengxing Zhai//The Hong Kong University of Science and Technology //翟成兴//香港科技大学 | TBD
 June 9, 2026 | 9:30-9:45 | Jason Cohen // China University of Mining and Technology //杰森科恩//中国矿业大学 | Beyond linearity: Quantifying the substantial effects of long range transport and absorbing aerosols on satellite based methane emission estimation and attribution//非线性：量化长距离输送与吸收性气溶胶对基于卫星的甲烷排放估算及归因的显著影响
@@ -376,24 +436,23 @@ June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁�
         return centeredKeywords.some(kw => lowerTitle.includes(kw));
       }
 
-      // 5. 核心渲染引擎（已剔除全部多余加粗逻辑）
+      // 5. 核心渲染引擎
       function renderDetailedAgendaTable(items) {
         if (!items.length) return '<div class="text-center text-muted my-5">No agenda available for this day.</div>';
         
-        // 💡 显式给 <th> 加上 font-weight: normal; 样式，防止主题默认加粗标题
-        let html = `<div class="table-responsive"><table class="table custom-table agenda-table" style="font-weight: normal;">
+        // 💡 重点修正：我们将 JS 生成的表格类名改为 detailed-schedule-table！完美套用你已有的绿色表头样式！
+        let html = `<div class="table-responsive"><table class="table custom-table detailed-schedule-table">
           <thead>
             <tr>
-              <th style="width:16%; font-weight: normal;">Time</th>
-              <th style="width:22%; font-weight: normal;">Presenter</th>
-              <th style="font-weight: normal;">Topic</th>
+              <th>Time</th>
+              <th>Presenter</th>
+              <th>Topic</th>
             </tr>
           </thead>
           <tbody>
         `;
         
         for (const item of items) {
-          // 💡 移除了原本包裹在 item.speaker 外部的 <strong> 标签
           const speakerCell = item.speaker ? `${item.speaker}` : '';
           const instituteCell = item.institute ? `<br><small class="text-muted">${item.institute}</small>` : '';
           const presenterContent = speakerCell + instituteCell;
