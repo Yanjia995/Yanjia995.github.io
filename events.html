@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/index.css">
     
     <style>
-        /* --- 核心样式强制修正 --- */
+        /* --- 核心样式 --- */
         .custom-table {
             border-collapse: collapse !important;
             width: 100% !important;
@@ -18,7 +18,6 @@
             border: 1px solid #A5D6A7 !important; 
             text-align: center !important;
             margin-bottom: 2.5rem;
-            /* 💡 全局允许折行，避免任何长英文单词撑出横向滚动条 */
             table-layout: auto;
             word-break: break-word !important; 
         }
@@ -27,7 +26,6 @@
             border: 1px solid #A5D6A7 !important; 
             padding: 12px 15px !important;
             vertical-align: middle !important;
-            /* 💡 强制允许所有单元格文字自由换行 */
             white-space: normal !important; 
         }
 
@@ -82,70 +80,47 @@
         .date-item { padding: 12px 0; border-bottom: 1px dashed #e0e0e0; }
         .date-item:last-child { border-bottom: none; }
         
-        /* 详细日程样式 (你原有的专属浅绿色表头) */
+        /* 详细日程补充样式 (原有浅绿色表头) */
         .detailed-schedule-table thead tr { background-color: #F0F4C3 !important; }
         .detailed-schedule-table thead th { color: #33691E !important; font-weight: 700 !important; }
         .session-title { font-weight: 700; color: #003366; }
         .speaker-info { color: #388E3C; font-size: 0.97rem; }
         .detail-time { color: #8D6E63; font-size: 0.95rem; }
 
-
         /* ========================================================= */
-        /* 🎯 详细日程表 (Detailed Schedule) 专属精准排版控制 */
+        /* 🎯 详细日程表 (Detailed Schedule) 高级两列样式控制 */
         /* ========================================================= */
-        
-        /* 强制详细日程表固定列宽占比 */
-        .detailed-schedule-table {
+        table.detailed-schedule-table {
             table-layout: fixed !important; 
+            width: 100% !important;
         }
 
-        /* 强行不加粗正文内容，并让正文偏左对齐更利于长文本阅读 */
-        .detailed-schedule-table tbody td {
-            font-weight: normal !important;
-            text-align: left !important;
+        table.detailed-schedule-table tbody td {
+            white-space: normal !important; 
+            word-break: break-word !important; 
+            font-weight: normal !important; /* 强制不加粗 */
         }
 
-        /* 第一列 Time：占比 15%，且居中 */
-        .detailed-schedule-table th:nth-child(1),
-        .detailed-schedule-table td:nth-child(1) {
-            width: 15% !important;
+        /* 捕获居中事件（茶歇、午餐等） */
+        table.detailed-schedule-table td[style*="text-align: center"],
+        table.detailed-schedule-table td[style*="text-align:center"] {
             text-align: center !important;
         }
 
-        /* 第二列 Presenter：占比 25% */
-        .detailed-schedule-table th:nth-child(2),
-        .detailed-schedule-table td:nth-child(2) {
-            width: 25% !important;
-        }
-
-        /* 第三列 Topic：占比 60%，拿大头 */
-        .detailed-schedule-table th:nth-child(3),
-        .detailed-schedule-table td:nth-child(3) {
-            width: 60% !important;
-        }
-
-        /* 捕获 JS 里专门设置的居中合并事件（如午餐、茶歇） */
-        .detailed-schedule-table td[style*="text-align: center"] {
-            text-align: center !important;
-        }
-
-        /* 抹除详细日程表容器的滚动条设置，使其彻底贴合屏幕 */
+        /* 彻底消除容器横向滚动条 */
         #agendaTabContent .table-responsive {
             overflow-x: hidden !important; 
         }
 
-        /* 移动端细微适配 */
         @media (max-width: 575.98px) {
             .background-card { padding: 18px; }
             .table-responsive { font-size: 0.97rem; }
-            .detailed-schedule-table th, 
-            .detailed-schedule-table td {
-                padding: 6px 4px !important; 
-                font-size: 0.85rem !important;
+            table.detailed-schedule-table th, 
+            table.detailed-schedule-table td {
+                padding: 10px 8px !important; 
             }
         }
     </style>
-    
 </head>
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
@@ -296,26 +271,26 @@
           </li>
         </ul>
         <pre id="raw-agenda-data" style="display: none;">
-June 7, 2026 | 4:00-6:00PM | | | Registration//注册报到
-June 8, 2026 | 9:00-9:30 | | | Opening Remarks//开幕式
+June 7, 2026 | 4:00-6:00PM | | Registration//注册报到
+June 8, 2026 | 9:00-9:30 | | Opening Remarks//开幕式
 June 8, 2026 | 9:30-9:45 | Robert Field//UNEP's International Methane Emissions Observatory//联合国环境规划署国际甲烷排放观测站 | TBD
 June 8, 2026 | 9:45-10:00 | Steven Wofsy//Harvard University//哈佛大学 | TBD
 June 8, 2026 | 10:00-10:15 | Yinnian Liu//Shanghai Institute of Technical Physics, Chinese Academy of Sciences//刘银年//中国科学院上海技术物理研究所 | Roadmap of Spaceborne Hyperspectral Methane Monitoring Technology//星载高光谱甲烷监测技术发展路线简图
 June 8, 2026 | 10:15-10:30 | Dave Risk//St. Francis Xavier University//圣弗朗西斯泽维尔大学 | Beyond Point Sources: Lessons from the SIMFLEX Experimental Program on Measuring Dispersed Methane Emissions Across Sectors and Scales//点源之外：SIMFLEX 实验项目关于跨行业、多尺度分散甲烷排放测量的经验
-June 8, 2026 | 10:30-10:50 | | | Coffee Break//茶歇
+June 8, 2026 | 10:30-10:50 | | Coffee Break//茶歇
 June 8, 2026 | 10:50-11:05 | Shane Murphy//University of Wyoming//怀俄明大学 | TBD
 June 8, 2026 | 11:05-11:20 | Huilin Chen//Nanjing University//陈辉林//南京大学 | Observation-based quantification of Methane Emissions from Wastewater Treatment Plants in China//基于观测数据的中国污水处理厂甲烷排放核算
 June 8, 2026 | 11:20-11:35 | Itziar Irakulis-Loitxate//UNEP's Methane Alert and Response System//联合国环境规划署甲烷预警与响应系统 | UNEP's Methane Alert and Response System: from satellite observations to methane mitigation//联合国环境规划署甲烷预警与响应系统：从卫星观测到甲烷减排
 June 8, 2026 | 11:35-11:50 | Donglai Xie//Environmental Defense Fund//解东来//美国环保协会 | Measurement of Methane Emissions from Household Gas Stoves//家用燃气灶甲烷排放量化
 June 8, 2026 | 11:50-12:05 | Ira Leifer//Bubbleology Research International (BRI)//BRI公司 | In situ verification of satellite-detected, enhanced geogas emissions in the Death Valley region after the 2019 Ridgecrest Earthquake//2019年Ridgecrest地震后死亡谷地区地气排放增强的卫星探测与实地验证
-June 8, 2026 | 12:05-14:00 | | | Lunch//午餐
+June 8, 2026 | 12:05-14:00 | | Lunch//午餐
 June 8, 2026 | 14:00-14:15 | Sujong Jeong//Seoul National University//郑秀钟//首尔大学 | Integrated Methane Monitoring and Modeling in Korea: Bridging Ground, Mobile, and Satellite Observations//韩国综合甲烷监测与建模：地面、移动与卫星观测的融合
 June 8, 2026 | 14:15-14:30 | Xi Lu//Tsinghua University//鲁玺//清华大学 | From Detection to Verification: Building Measurement-Based Methane MRV through Integrated Satellite and Mobile Monitoring//从排放发现到核证闭环：基于卫星与走航融合观测的甲烷排放MRV能力构建
 June 8, 2026 | 14:30-14:45 | Elfie Roy//Carbon Limits//碳减排咨询公司 | Bridging the measurement gap: accurate quantification as a prerequisite for credible CMM mitigation//填补测量空白：精准量化是实现可信煤矿甲烷减排的先决条件
 June 8, 2026 | 14:45-15:00 | Xunchang Fei//Nanyang Technological University//费璕瑺//南洋理工大学 | Methane Emissions from Landfills Differentially Underestimated Worldwide//全球垃圾填埋场甲烷排放的差异性低估
 June 8, 2026 | 15:00-15:15 | Bo Zheng//Tsinghua University//郑博//清华大学 | Trends, drivers, and targeted mitigation opportunities of China's anthropogenic methane emissions//中国人为甲烷排放的趋势、驱动因素及精准减排机遇
 June 8, 2026 | 15:15-15:30 | Weifan Xu//The Hong Kong University of Science and Technology //绪伟凡//香港科技大学 | TBD
-June 8, 2026 | 15:30-15:50 | | | Coffee Break//茶歇
+June 8, 2026 | 15:30-15:50 | | Coffee Break//茶歇
 June 8, 2026 | 15:50-15:55 (lightning talk) | Chen Xu//The Hong Kong University of Science and Technology(Guangzhou)//徐宸//香港科技大学（广州） | Dry-Wet Season Contrast of Methane Emissions in Southeast Asia Revealed by High-Resolution TROPOMI Inversion//高分辨率TROPOMI反演揭示东南亚甲烷排放的干湿季节差异
 June 8, 2026 | 15:55-16:00 (lightning talk) | Guolin Wang//Hong Kong Baptist University//王郭琳//香港浸会大学 | Methane Mitigation Governance in China: A Policy Perspective//政策视角下的中国甲烷减排治理
 June 8, 2026 | 16:00-16:05 (lightning talk) | Yanqiu Liu//China University of Mining and Technology//刘艳秋//中国矿业大学 | Policy-directed targeting of methane transport effect from Shanxi major coal basins toward the Beijing-Tianjin-Hebei (BTH) region//政策导向下的山西主要煤盆地至京津冀地区的甲烷输送效应
@@ -330,34 +305,34 @@ June 8, 2026 | 16:40-16:45 (lightning talk) | Huiru Zhong//Peking University//�
 June 8, 2026 | 16:45-16:50 (lightning talk) | Jialing Xu//China University of Mining and Technology//徐佳玲//中国矿业大学 | TBD
 June 8, 2026 | 16:50-16:55 (lightning talk) | Xiachun Wang//University of Science and Technology of China//王夏春//中国科学技术大学 | Dynamic Imaging and Inverse Quantification Method of Methane Gas Cloud with Laser Scanning Technology//激光扫描式甲烷气云动态成像及定量反演方法
 June 8, 2026 | 16:55-17:00 (lightning talk) | Yunayuan Chen//Anhui University of Science and Technology//陈圆圆//安徽理工大学 | Quantifying methane emissions from large coal mine using Sentinel-5 Precursor satellite data and Gaussian plume model//基于Sentinel-5P和混合高斯羽流模型的大型煤矿甲烷排放估算
-June 8, 2026 | 17:00-18:00 | | | Poster Session//海报展示
-June 8, 2026 | 18:00-20:00 | | | Dinner @ China Garden//晚餐 @ 南北小厨
+June 8, 2026 | 17:00-18:00 | | Poster Session//海报展示
+June 8, 2026 | 18:00-20:00 | | Dinner @ China Garden//晚餐 @ 南北小厨
 June 9, 2026 | 9:00-9:15 | Felicia A. Ruiz//Coal Mine Methane and Strategic Partnerships//煤矿甲烷与战略合作 | TBD
 June 9, 2026 | 9:15-9:30 | Chengxing Zhai//The Hong Kong University of Science and Technology //翟成兴//香港科技大学 | TBD
 June 9, 2026 | 9:30-9:45 | Jason Cohen // China University of Mining and Technology //杰森科恩//中国矿业大学 | Beyond linearity: Quantifying the substantial effects of long range transport and absorbing aerosols on satellite based methane emission estimation and attribution//非线性：量化长距离输送与吸收性气溶胶对基于卫星的甲烷排放估算及归因的显著影响
 June 9, 2026 | 9:45-10:00 | Kai Qin//China University of Mining and Technology//秦凯//中国矿业大学 | Integrated Estimation of Coal Mine Methane Emissions in China Using Satellite, Surface, and Underground Observations//基于天地井一体化观测估算中国煤矿甲烷排放
 June 9, 2026 | 10:00-10:15 | Ajay K. Singh//Indian Institute of Technology Bombay//印度理工学院孟买分校 | Evaluating fugitive methane emissions from abandoned underground coal mines in India//评估印度废弃地下煤矿的逃逸甲烷排放
-June 9, 2026 | 10:15-10:45 | | | Coffee Break//茶歇
+June 9, 2026 | 10:15-10:45 | | Coffee Break//茶歇
 June 9, 2026 | 10:45-11:00 | Udayan Singh//Northwestern University//西北大学 | Could fugitive methane emissions from coal exploration be a blind spot for greenhouse gas inventories?//煤炭勘探过程中的逃逸甲烷排放是否会成为温室气体清单的盲区？
 June 9, 2026 | 11:00-11:15 | Ge Han//Wuhan University//韩舸//武汉大学 | Constraining Annual Coal Mine Methane Emissions with Multi-Temporal Hyperspectral Satellite Observations//基于多时相高光谱卫星观测的年度煤矿甲烷排放约束
 June 9, 2026 | 11:15-11:30 | Qingyi Tu//Anhui University of Science and Technology//涂庆毅//安徽理工大学 | Current Status of Methane Emission Reduction and Utilization Technologies in Coal Mines and Abandoned Coal Mines//煤矿及废弃煤矿甲烷减排与利用技术现状
 June 9, 2026 | 11:30-11:45 | Xiang Li//Environmental Defense Fund//李湘//美国环保协会 | Facilitating the integration of satellite-based methane monitoring data into emissions inventory preparation and terrestrial supervision//推动甲烷卫星监测数据融入排放清单准备及地面监管工作
 June 9, 2026 | 11:45-12:00 | Yuyan Cui //Environmental Defense Fund //崔语嫣//美国环保协会 | Regional High-Resolution Methane Emissions Estimated Using TROPOMI and WRF-GHG/Chem-DART and Comparisons Across Multiple Systems//基于TROPOMI和WRF-GHG/Chem-DART的区域高分辨率甲烷排放估算及多系统对比
 June 9, 2026 | 12:00-12:15 | Xiao Lu//Sun Yat-sen University//卢骁//中山大学 | Revised global methane budget inferred from inverse analysis of integrated methane and isotope observations//基于甲烷与同位素观测反演的全球甲烷收支修正
-June 9, 2026 | 12:15-14:00 | | | Lunch//午餐
+June 9, 2026 | 12:15-14:00 | | Lunch//午餐
 June 9, 2026 | 14:00-14:15 | Xiuying Zhang//Nanjing University//张秀英//南京大学 | Detection on global onshore gas flaring from Sentinel-2 MSI images//基于Sentinel-2 MSI影像识别全球陆上天然气燃除
 June 9, 2026 | 14:15-14:30 | Zichong Chen//The Hong Kong University of Science and Technology (Guangzhou)//陈子冲//香港科技大学（广州） | Tropical Wetland Methane Emission Inventory (WMEI) for 2004-2023 inferred from Landsat-based inundated vegetation data//基于Landsat卫星淹没植被数据反演的2004-2023年热带湿地甲烷排放清单
 June 9, 2026 | 14:30-14:45 | Meiyu Guo//Hong Kong Baptist University//郭美瑜//香港浸会大学 | Evaluating Global Methane Mitigation Policies: A Multi-Source Structural Break Analysis//全球甲烷减排政策评估：多源结构断点分析
 June 9, 2026 | 14:45-15:00 | Zhipeng Pei//Wuhan University//裴志鹏//武汉大学 | Enhancing CH4 Quantification Accuracy: A Scene-based Spectral Calibration Approach for Imaging Spectrometers//提高甲烷量化精度：基于场景的成像光谱仪光谱定标法
 June 9, 2026 | 15:00-15:15 | Shuzhuang Feng//Nanjing University//冯树状//南京大学 | Estimating anthropogenic methane emissions in China using a high-resolution regional methane assimilation system//基于高分辨率区域甲烷同化系统估算中国人为甲烷排放
-June 9, 2026 | 15:15-15:45 | | | Coffee Break//茶歇
+June 9, 2026 | 15:15-15:45 | | Coffee Break//茶歇
 June 9, 2026 | 15:45-16:00 | Xiaonan Zhang//Environmental Defense Fund//张晓楠//美国环保协会 | TBD
 June 9, 2026 | 16:00-16:15 | Sihong Zhu//Institute of Atmospheric Physics, Chinese Academy of Sciences//朱思虹//中国科学院大气物理研究所 | Significant response of methane in the upper troposphere to subseasonal variability in the Asian monsoon anticyclone//对流层上层甲烷对亚洲季风反气旋次季节变率的显著响应
 June 9, 2026 | 16:15-16:30 | Kunpeng Zang//Zhejiang University of Technology//臧昆鹏//浙江工业大学 | A self-developed headspace Gas Chromatograph method for measuring dissolved methane//一种自主研发的用于测定溶解甲烷的顶空气相色谱法
 June 9, 2026 | 16:30-16:45 | Zhirong Zhang//Hefei Institutes of Physical Science, Chinese Academy of Sciences, the Mainland of China//张志荣//中国科学院合肥物质科学研究院 | Laser technology for methane leakage cloud imaging and quantification of leakage rate//用于甲烷泄漏云团成像与泄漏率定量的激光技术
 June 9, 2026 | 16:45-17:00 | Huiru Zhong//Peking University//钟慧茹//北京大学 | Fossil fuel methane emission trends (2019–2024) inferred from high-resolution satellite observations//基于高分辨率卫星数据的化石燃料甲烷排放趋势（2019–2024年）
 June 9, 2026 | 17:00-17:15 | Matthieu Dogniaux//Space Research Organisation Netherlands//荷兰空间研究组织 |  TBD
-June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁奖及闭幕式
+June 9, 2026 | 17:15-17:45 | | Best Presentation Award & Closing Remarks//颁奖及闭幕式
         </pre>
         <div class="tab-content" id="agendaTabContent">
           <div class="tab-pane fade show active" id="agenda-day1" role="tabpanel" aria-labelledby="agenda-day1-tab">
@@ -382,34 +357,25 @@ June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁�
           return text.replace(/\/\/+/g, '<br>');
         }
 
+        // 解析 4 段式数据：Date | Time | Speaker(用//区分机构) | Title
         if (parts.length === 4) {
           return {
             date: parts[0],
             time: parts[1],
             speaker: clean(parts[2]),
-            institute: '',
             title: clean(parts[3])
           };
         } 
+        // 解析 3 段式数据 (如茶歇、午餐)：Date | Time | Title
         else if (parts.length === 3) {
           return {
             date: parts[0],
             time: parts[1],
             speaker: '',
-            institute: '',
             title: clean(parts[2])
           };
         } 
-        else if (parts.length >= 5) {
-          return {
-            date: parts[0],
-            time: parts[1],
-            speaker: clean(parts[2]),
-            institute: clean(parts[3]),
-            title: clean(parts.slice(4).join('|'))
-          };
-        }
-        return { date: parts[0] || '', time: '', speaker: '', institute: '', title: '' };
+        return { date: parts[0] || '', time: '', speaker: '', title: '' };
       }
 
       function splitAgendaByDay(items) {
@@ -436,50 +402,68 @@ June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁�
         return centeredKeywords.some(kw => lowerTitle.includes(kw));
       }
 
-      // 5. 核心渲染引擎
+      // ===============================================
+      // 🌟 终极两列高级模板渲染引擎
+      // ===============================================
       function renderDetailedAgendaTable(items) {
         if (!items.length) return '<div class="text-center text-muted my-5">No agenda available for this day.</div>';
         
-        // 💡 重点修正：我们将 JS 生成的表格类名改为 detailed-schedule-table！完美套用你已有的绿色表头样式！
         let html = `<div class="table-responsive"><table class="table custom-table detailed-schedule-table">
           <thead>
             <tr>
-              <th>Time</th>
-              <th>Presenter</th>
-              <th>Topic</th>
+              <th style="width: 20%;">Time / 时间</th>
+              <th style="width: 80%;">Session Details / 环节详情</th>
             </tr>
           </thead>
           <tbody>
         `;
         
         for (const item of items) {
-          const speakerCell = item.speaker ? `${item.speaker}` : '';
-          const instituteCell = item.institute ? `<br><small class="text-muted">${item.institute}</small>` : '';
-          const presenterContent = speakerCell + instituteCell;
-
           if (isSessionMerged(item)) {
-            let displayContent = item.title || speakerCell;
-            if (isCenteredEvent(item)) {
-              html += `
-                <tr class="highlight-row" style="background-color: #f8f9fa;">
-                  <td class="secondary-text">${item.time || ''}</td>
-                  <td colspan="2" style="text-align: center;"><span>${displayContent}</span></td>
-                </tr>
-              `;
-            } else {
-              html += `
-                <tr class="highlight-row" style="background-color: #f8f9fa;">
-                  <td class="secondary-text">${item.time || ''}</td>
-                  <td colspan="2" style="text-align: left;"><span>${displayContent}</span></td>
-                </tr>
+            // =====================================
+            // 🍔 合并行（茶歇、午餐、晚宴）处理
+            // =====================================
+            let displayContent = item.title || item.speaker || '';
+            let align = isCenteredEvent(item) ? 'center' : 'left';
+            html += `
+              <tr class="highlight-row" style="background-color: #f8f9fa;">
+                <td class="fw-semibold detail-time" style="color:#003366; vertical-align: middle !important;">${item.time || ''}</td>
+                <td style="text-align: ${align} !important; vertical-align: middle !important;">
+                  <span style="font-weight:600; color:#333;">${displayContent}</span>
+                </td>
+              </tr>
+            `;
+          } else {
+            // =====================================
+            // 🎤 讲座行（高级文字版模板）处理
+            // =====================================
+            let speakerBlock = '';
+            
+            if (item.speaker) {
+              // 自动将 Speaker 字段按 <br> 切分（前面函数里已经把 // 换成了 <br>）
+              let spkParts = item.speaker.split('<br>').map(s => s.trim()).filter(s => s);
+              let name = spkParts[0] || ''; // 第一个元素作为姓名
+              let inst = spkParts.slice(1).join('<br>'); // 后面的所有元素作为机构，自动换行
+              
+              speakerBlock = `
+                <div class="mt-2">
+                  <div class="prof-affiliation-text text-start">
+                    <span class="fw-bold" style="color:#0074D9; font-size:1.02rem;">${name}</span>
+                    ${inst ? `<br><span class="text-secondary" style="font-size:0.95rem;">${inst}</span>` : ''}
+                  </div>
+                </div>
               `;
             }
-          } else {
+
             html += `
               <tr>
-                <td class="secondary-text">${item.time || ''}</td>
-                <td>${presenterContent}</td>
-                <td style="text-align:left;">${item.title || ''}</td>
+                <td class="fw-semibold detail-time" style="color:#003366; vertical-align: top !important; padding-top: 18px !important;">
+                  ${item.time || ''}
+                </td>
+                <td style="text-align: left !important; vertical-align: top !important; padding-top: 15px !important; padding-bottom: 15px !important;">
+                  <div class="fw-bold" style="color:#003366; font-size: 1.05rem;">${item.title || ''}</div>
+                  ${speakerBlock}
+                </td>
               </tr>
             `;
           }
@@ -569,11 +553,131 @@ June 9, 2026 | 17:15-17:45 | | | Best Presentation Award & Closing Remarks//颁�
         </div>
     </section>
 
+      <section class="container my-5">
+    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
+      <i class="fa-solid fa-route me-2"></i>How to Get to HKUST
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="d-flex flex-column flex-lg-row gap-3">
+          <div class="flex-fill" style="min-width:280px;">
+            <div class="accordion" id="accordionMTRBusMinibus">
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingMTR">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMTR" aria-expanded="false" aria-controls="collapseMTR">
+                    <i class="fa-solid fa-train-subway me-2"></i>By MTR / Bus / Minibus
+                  </button>
+                </h2>
+                <div id="collapseMTR" class="accordion-collapse collapse" aria-labelledby="headingMTR" data-bs-parent="#accordionMTRBusMinibus">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>
+                        The most popular way to our campus is to take MTR (Mass Transit Railway) to Hang Hau station, then
+                        take the green minibus No. 11M from the Hang Hau station to HKUST North Bus Station. The minibus
+                        costs HK$6.</li>
+                      <li>
+                        Please note that if you opt to take bus/minibus, you can only pay the fare by Octopus card or by cash (no
+                        change of coins in general).</li>
+                      <li>
+                        There are other <a href="https://cso.hkust.edu.hk/tran/pt" target="_blank" style="color:#0074D9;">possible public transports to HKUST</a> 
+                        and the <a href="https://www.mtr.com.hk/en/customer/services/system_map.html" target="_blank" style="color:#0074D9;">MTR route map</a>.
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-fill" style="min-width:280px;">
+            <div class="accordion" id="accordionTaxi">
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingTaxi">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTaxi" aria-expanded="false" aria-controls="collapseTaxi">
+                    <i class="fa-solid fa-taxi me-2"></i>By Taxi
+                  </button>
+                </h2>
+                <div id="collapseTaxi" class="accordion-collapse collapse" aria-labelledby="headingTaxi" data-bs-parent="#accordionTaxi">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      <li>
+                        Taxi fare is normally paid by cash in Hong Kong Dollar.  Foreign currencies are generally not accepted.
+                          <b>Please make sure you have enough cash to pay the taxi fare.</b>
+                      </li>
+                      <li>
+                        <b>Estimated Fare & Time:</b>  Hong Kong International Airport to HKUST ~HK$400 (40 mins). Hong Kong West Kowloon Station to HKUST ~HK$200 (30 mins). Hang Hau to HKUST ~HK$60 (10 mins).
+                      <li>
+                        You can show the address of the venue in traditional
+                          Chinese to the taxi driver.<br>香港九龍清水灣 香港科技大學 北門
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-fill" style="min-width:280px;">
+            <div class="accordion" id="accordionCar">
+              <div class="accordion-item mb-3">
+                <h2 class="accordion-header" id="headingCar">
+                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCar" aria-expanded="false" aria-controls="collapseCar">
+                    <i class="fa-solid fa-car-side me-2"></i>Driving
+                  </button>
+                </h2>
+                <div id="collapseCar" class="accordion-collapse collapse" aria-labelledby="headingCar" data-bs-parent="#accordionCar">
+                  <div class="accordion-body">
+                    <ul class="mb-0">
+                      If you plan to drive to our campus, please contact us by email (climetgroup@gmail.com) as soon as possible. 
+                      We will need to register your vehicle before the ASI. Please provide us with the following information: Full 
+                      name of the driver, Car plate number, and Driver’s phone number for vehicle registration. 
+                      For campus parking, please find below campus map
+                        
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> </div>
+    </div>
+    <style>
+      @media (min-width: 992px) {
+        /* Set vertical accordions as columns for flex children on large screens */
+        .d-flex.flex-lg-row > .flex-fill {
+          border-right: 1px solid #efefef;
+        }
+        .d-flex.flex-lg-row > .flex-fill:last-child {
+          border-right: none;
+        }
+        .accordion {
+          box-shadow: none;
+          border: none;
+        }
+      }
+      @media (max-width: 991.98px) {
+        .d-flex.flex-lg-row {
+          flex-direction: column !important;
+        }
+        .d-flex.flex-lg-row > .flex-fill {
+          border-right: none !important;
+        }
+      }
+    </style>
+  </section>
 
-
-    <section class="container my-5 text-center">
-        <p class="text-muted">Contact us / 联系邮箱: <a href="mailto:climetgroup@gmail.com" style="color:#003366; font-weight:600;">climetgroup@gmail.com</a></p>
-    </section>
+  <section class="container my-5">
+    <div class="text-center fs-2 fw-bold mb-4" style="color:#003366; letter-spacing:2px;">
+      <i class="fa-solid fa-map-location-dot me-2"></i>Campus Map
+    </div>
+    <div class="text-start mb-3 fs-5" style="color:#003366;">
+      For detailed directions from North/South Gate to the venue, please refer to the campus map below:<br><br>
+       </div>
+    <div class="text-center">
+      <img src="photo/img/Lecture_Theaters.jpg" alt="HKUST Campus Map" class="img-fluid rounded shadow-lg" style="max-width:100%; height:auto; border:4px solid #A5D6A7;">
+    </div>
+  </section>
+  <section class="container my-5 text-center">
+      <p class="text-muted">Contact us / 联系邮箱: <a href="mailto:climetgroup@gmail.com" style="color:#003366; font-weight:600;">climetgroup@gmail.com</a></p>
+  </section>
 
     <footer>
         <p class="text-center fw-bold mt-4 mb-3 fs-3" id="cu">Contact us</p>
