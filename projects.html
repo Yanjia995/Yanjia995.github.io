@@ -22,21 +22,21 @@
 
 
         :root {
-            --primary-color: #0A2540;
+            --primary-color: #003366;
             --accent-color: #0073E6;
             --bg-light: #F8F9FA;
             --text-dark: #333333;
             --text-muted: #666666;
         }
 
-        body {
+        /* body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-dark);
             background-color: #ffffff;
             line-height: 1.6;
-        }
+        } */
 
         /* Header / Project Title */
         .hero-section {
@@ -218,22 +218,29 @@
             </div>
         </div>
     </nav>
-    <header class="hero-section" style="background: #f5faff; color: #0A2540;">
-        <span class="tag" style="
-            background: #e3f2fd;
-            color: #0A2540;
-            font-weight: bold;
-            border: none;
-            box-shadow: 0 1px 10px rgba(10,37,64,0.09);
-            font-size: 1.05rem;
-        ">Project Presentation</span>
-        <h1 style="
-            color: #0A2540;
-            background: none;
-            font-weight: 800;
-            letter-spacing: 1px;
-            font-size: 2.5rem;
-        ">AI-Assisted Production of Ocean Surface Winds from Remote Sensing Satellites for Typhoon Forecast Improvement</h1>
+    <header class="hero-section" style="background: #f5faff; color: #0A2540; width: 100%;">
+        <div class="container-fluid px-3 px-md-5 py-4">
+            <span class="tag d-inline-block mb-3" style="
+                background: #e3f2fd;
+                color: #0A2540;
+                font-weight: bold;
+                border: none;
+                box-shadow: 0 1px 10px rgba(10,37,64,0.09);
+                font-size: 1.05rem;
+            ">Project Presentation</span>
+            <h1 class="mb-0" style="
+                color: #0A2540;
+                background: none;
+                font-weight: 800;
+                letter-spacing: 1px;
+                font-size: clamp(1.3rem, 4vw, 2.5rem);
+                font-family: 'Arial', Times, serif;
+                max-width: 850px;
+                line-height: 1.2;
+            ">
+                AI-Assisted Production of Ocean Surface Winds from Remote Sensing Satellites for Typhoon Forecast Improvement
+            </h1>
+        </div>
     </header>
 
     <div class="container">
@@ -257,7 +264,9 @@
 					<div class="authors">Shiwei Yu, Hui Su, Pak Wai Chan, Naigeng Wu, Cen Wang, Yangzhao Gong (2026)</div>
 					<div class="title">Statistical characteristics of environments of precipitating mesoscale convective systems during the pre‐summer season over South China</div>
 					<div class="journal">Journal of Geophysical Research: Atmospheres, 131(12), e2025JD045138</div>
-					<a href="https://doi.org/10.1029/2025JD045138" class="doi-link" target="_blank">🔗 https://doi.org/10.1029/2025JD045138</a>
+					<a href="https://doi.org/10.1029/2025JD045138" class="doi-link d-block text-break" target="_blank" style="word-break: break-all; overflow-wrap: break-word;">
+						🔗 https://doi.org/10.1029/2025JD045138
+					</a>
 				</div>
 
 				<!-- Paper 2 -->
@@ -281,7 +290,9 @@
 					<div class="authors">Cen Wang, Hui Su, Chengxing Zhai, Jianqiu Zheng, Shiwei Yu, Yanjia Wang, Luancheng Xu (2026)</div>
 					<div class="title">Arctic sea ice loss shifting from edge to interior increases cold surges in mid-latitude Asia</div>
 					<div class="journal">Atmospheric Research, 312, 108944</div>
-					<a href="https://doi.org/10.1016/j.atmosres.2026.108944" class="doi-link" target="_blank">🔗 https://doi.org/10.1016/j.atmosres.2026.108944</a>
+					<a href="https://doi.org/10.1016/j.atmosres.2026.108944" class="doi-link d-block text-break" target="_blank" style="word-break: break-all; overflow-wrap: break-word;">
+						🔗 https://doi.org/10.1016/j.atmosres.2026.108944
+					</a>
 				</div>
 
 				<!-- Paper 5 -->
